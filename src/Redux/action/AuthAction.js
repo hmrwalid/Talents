@@ -6,7 +6,12 @@ import { setAuth } from '../../Util/setAuth';
 export const Registration = (form, navigate)=>dispatch=>{
     axios.post('/api/register', form) 
     .then(res=>{
-     console.log(res)
+      navigate ('/login')
+      dispatch({
+        type: ERRORS,
+        payload: {}
+    })
+
     })
     .catch(err=>{
         dispatch({

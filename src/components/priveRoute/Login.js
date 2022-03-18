@@ -1,12 +1,18 @@
 import React,{useState} from 'react'
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import Inputs from './Input';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
     });
+    
+    const errors = useSelector(state=>state.errors)
+    const dispatch = useDispatch();
 
-    const handleOnChange = (e) =>
+    const onChangeHandler = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
     
     const onSubmit =(e)=>{
@@ -20,19 +26,28 @@ const Login = () => {
 
 <h3>Log in</h3>
 
-<div className="form-group">
-    <label>Email</label>
-    <input type="email" className="form-control" name='email' placeholder="Enter email" onChange={handleOnChange} />
-</div>
-
-<div className="form-group">
-    <label>Password</label>
-    <input type="password" className="form-control" name='password' placeholder="Enter password" onChange={handleOnChange} />
-</div>
-
-
-
-<button type="submit" className="btn btn-dark btn-lg btn-block" style={{margin :"20px"}}>Sign in</button>
+<Inputs
+                name="email"
+                label="Email"
+                type="text"
+                icon="fa-solid fa-at"
+                onChangeHandler={onChangeHandler}
+                errors={errors.email}
+              />
+              <Inputs
+                name="password"
+                label="Password"
+                type="password"
+                icon="fa-solid fa-key"
+                onChangeHandler={onChangeHandler}
+                errors={errors.password}
+              />
+              <div className="d-flex justify-content-between">
+                <button type="submit" className="btn btn-outline-primary">
+                  Save <i className="fa-solid fa-floppy-disk"></i>
+                </button>
+                <Link to="/register">I don't have account</Link>
+              </div>
 </form>
     </div>
   )
