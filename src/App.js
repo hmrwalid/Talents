@@ -16,11 +16,22 @@ import PrivateRouter from './components/priveRoute/PrivetRoutr';
 import Admin from './components/profile/Admin';
 import AdminRouter from './components/AdminRouter';
 import ForceRedirect from './components/ForceRedirect';
+import { setUser } from './Redux/action/AuthAction';
+import jwt_decode from 'jwt-decode'
+import { store } from './app/store';
+import { useSelector } from 'react-redux';
+
+if(localStorage.jwt){
+  const decode =jwt_decode(localStorage.jwt)
+  store.dispatch(setUser)
+}
 
 function App() {
+
+  const auth = useSelector(state => state.auth)
   const user = {
-    isConnected: false,
-    role : "USER"
+    isConnected: auth.isConnected,
+    role: auth.user.role
   }
   return (
     <Router>

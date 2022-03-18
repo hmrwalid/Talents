@@ -31,7 +31,7 @@ const SingUp = () => {
                  <Inputs name="password" label="Password" type="password" icon="fa-solid fa-key" onChangeHandler={onChangeHandler} errors={errors.password}/>
                 <Inputs name="confirm" label="Confirm password" type="password" icon="fa-solid fa-key" onChangeHandler={onChangeHandler} errors={errors.confirm}/>
                 <div className="d-flex justify-content-between">
-                            <button type="submit" className="btn btn-outline-primary">Register<i className="fa-solid fa-floppy-disk"></i></button>
+                            <button type="submit" className="btn btn-outline-primary">Save<i className="fa-solid fa-floppy-disk"></i></button>
                             <Link to="/login">I have account</Link>
                         </div>    
                   

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Logout } from '../../Redux/action/AuthAction.js';
 import { Nav,
     NavLink,
     Bars,
@@ -7,6 +9,12 @@ import { Nav,
      NavBtnLink} from "./NavElement.js"
 
 const Navbar = () => {
+  const user = useSelector(state => state.auth)
+
+  const dispatch = useDispatch()
+  const handelLogout=()=>{
+    dispatch(Logout())
+  }
   return (
     <>
       <Nav>
@@ -28,10 +36,24 @@ const Navbar = () => {
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
-        <NavBtn>
+        
+          {!user.isConnected ? 
+          (<>
+          <NavBtn>
           <NavLink to='/login'>Login</NavLink>
           <NavLink to='/register'>Sign Up</NavLink>
-        </NavBtn>
+          </NavBtn>
+          </>):(
+          <>
+          <NavBtn>
+            <NavLink to='/dashbord' >{user.user.name}</NavLink>
+            <NavLink to='#' onClick={handelLogout}>Logout</NavLink>
+            </NavBtn>
+          </>)  }
+          
+         
+
+     
       </Nav>
     </>
   );

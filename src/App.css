@@ -1,6 +1,6 @@
 /* login CSS */
 form{
-   height: 500px;
+   height: 600px;
    padding: 50px;
    font-family: sans-serif;
    background: #111111;  /* fallback for old browsers */
@@ -16,11 +16,12 @@ form{
 }
   
  .body {
-    min-height: 100vh;
+    min-height: 150vh;
     display: flex;
     justify-content: center;
     font-weight: 400;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     
     font-family: sans-serif;
    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
