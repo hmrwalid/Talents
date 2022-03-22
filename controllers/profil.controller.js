@@ -54,7 +54,7 @@ const DeleteProfile = async (req ,res)=>{
         res.status(200).json({message: "deleted"})
  
      } catch (error) {
-         res.status(404).json(error.message)
+         res.status(404).json(error.message.toString())
      }
 }
 

@@ -10,12 +10,12 @@ const UserProfile = new Schema(
     },
    
     age:{type:Number,required:true},
-    height : {type:String},
-    weight : {type:String},
-    stronger_Foot :{type:String},
+    height : {type:String,required:true},
+    weight : {type:String,required:true},
+    stronger_Foot :{type:String,required:true},
     image: {type: String},
     address: "string",
-    tel: "string",
+    tel: "number",
     city: "string",
     
   },

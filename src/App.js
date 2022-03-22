@@ -3,6 +3,7 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/navbar/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Home from './components/pages/Home';
 import About from "./components/pages/About"
 import Challenge from "./components//pages/Challenge"
@@ -16,14 +17,21 @@ import PrivateRouter from './components/priveRoute/PrivetRoutr';
 import Admin from './components/profile/Admin';
 import AdminRouter from './components/AdminRouter';
 import ForceRedirect from './components/ForceRedirect';
-import { setUser } from './Redux/action/AuthAction';
 import jwt_decode from 'jwt-decode'
+import { Logout, setUser } from './Redux/action/AuthAction';
+import {setAuth} from "./Util/setAuth"
 import { store } from './app/store';
-import { useSelector } from 'react-redux';
+import Profile from './components/profile/Profile';
 
-if(localStorage.jwt){
-  const decode =jwt_decode(localStorage.jwt)
-  store.dispatch(setUser)
+if(window.localStorage.jwt){
+  const decode = jwt_decode(window.localStorage.jwt)
+  store.dispatch(setUser(decode))
+  setAuth(window.localStorage.jwt)
+  const currentDate = Date.now / 1000
+
+  if(decode.exp >  currentDate){
+   store.dispatch(Logout()) 
+  }
 }
 
 function App() {
@@ -41,6 +49,11 @@ function App() {
       <Route path="/dashbord" element={
           <PrivateRouter user={user}>
             <Dashboard />
+          </PrivateRouter>
+        } />
+        <Route path="/profile" element={
+          <PrivateRouter user={user}>
+            <Profile />
           </PrivateRouter>
         } />
          <Route path="/admin" element={

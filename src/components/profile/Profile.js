@@ -1,6 +1,3 @@
-// import React from 'react'
-// import { useSelector } from 'react-redux'
-// import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import Inputs from '../priveRoute/Input'
 import { useDispatch, useSelector } from 'react-redux'
@@ -30,7 +27,7 @@ const Profile = () => {
       useEffect(async ()=>{
        await dispatch(GetProfile())
        setForm(profiles.profile)
-      },[dispatch])
+      },[])
     return (
       <div>
          <div className="container p-4 mt-4">
@@ -88,24 +85,3 @@ const Profile = () => {
   }
   
   export default Profile
-
-
-
-// const Dashboard = () => {
-// //   const profiles = useSelector(state=>state.profiles)
-// //   const talent = profiles.profile
-// //   const user = useSelector(state=>state.auth.user)
-// // console.log(talent.user)
-//   return (
-//  <div>
-  
-//    <h3>Welcome to Golden boyTalent</h3>
-//     <p>create your profile</p>
-//    <Link to='/profile'> <button>create</button></Link>
-   
- 
-//     </div>
-//   )
-// }
-
-// export default Dashboard

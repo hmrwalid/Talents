@@ -10,7 +10,7 @@ import { Nav,
 
 const Navbar = () => {
   const user = useSelector(state => state.auth)
-
+  console.log(user.user.role )
   const dispatch = useDispatch()
   const handelLogout=()=>{
     dispatch(Logout())
@@ -43,7 +43,13 @@ const Navbar = () => {
           <NavLink to='/login'>Login</NavLink>
           <NavLink to='/register'>Sign Up</NavLink>
           </NavBtn>
-          </>):(
+          </>): user.user.role === "ADMIN"? (
+          <>
+          <NavBtn>
+            <NavLink to='/admin' >{user.user.role}</NavLink>
+            <NavLink to='#' onClick={handelLogout}>Logout</NavLink>
+            </NavBtn>
+          </>): (
           <>
           <NavBtn>
             <NavLink to='/dashbord' >{user.user.name}</NavLink>
