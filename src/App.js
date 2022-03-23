@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import "./Bulma.css"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/navbar/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -14,7 +15,6 @@ import NotFound from './components/pages/NotFound';
 import NoAcces from './components/pages/NoAcces';
 import Dashboard from './components/profile/Dashboard';
 import PrivateRouter from './components/priveRoute/PrivetRoutr';
-import Admin from './components/profile/Admin';
 import AdminRouter from './components/AdminRouter';
 import ForceRedirect from './components/ForceRedirect';
 import jwt_decode from 'jwt-decode'
@@ -22,6 +22,7 @@ import { Logout, setUser } from './Redux/action/AuthAction';
 import {setAuth} from "./Util/setAuth"
 import { store } from './app/store';
 import Profile from './components/profile/Profile';
+import Admin from './components/Admin/Admin';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
