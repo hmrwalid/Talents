@@ -24,20 +24,32 @@ const SingUp = () => {
   return (
       
     <div className='body'>
+    <div className='logContainer'>
+    <div className='login'>
       <form onSubmit={onSubmit}>
                 <h3>Sing Up</h3>
                 <Inputs name="name" label="Name" type="text" icon="fa-solid fa-user" onChangeHandler={onChangeHandler} errors={errors.name}/>
                  <Inputs name="email" label="Email" type="text" icon="fa-solid fa-at" onChangeHandler={onChangeHandler} errors={errors.email}/>
                  <Inputs name="password" label="Password" type="password" icon="fa-solid fa-key" onChangeHandler={onChangeHandler} errors={errors.password}/>
                 <Inputs name="confirm" label="Confirm password" type="password" icon="fa-solid fa-key" onChangeHandler={onChangeHandler} errors={errors.confirm}/>
-                <div className="d-flex justify-content-between">
-                            <button type="submit" className="btn btn-outline-primary">Save<i className="fa-solid fa-floppy-disk"></i></button>
-                            <Link to="/login">I have account</Link>
-                        </div>    
+              
+                <button>Sig in</button>
+               <Link to="/singup"> <p>
+                   i  have account
+                </p>   </Link>         
+                 
                   
              
             </form>
+           
     </div>
+    <div class="pic">
+            <img src="/foot.jpg"/>
+        </div>
+    </div>
+    </div>
+
+
   )
 }
 

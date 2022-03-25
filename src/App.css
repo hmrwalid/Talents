@@ -1,78 +1,177 @@
-/* login CSS */
-form{
-   /* height: 600px; */
-   padding: 50px;
-   font-family: sans-serif;
-   background: #080808; 
-   opacity: 0.7;
-   /* background: -webkit-linear-gradient(to right, #585757, hwb(270 42% 57%), #061214);   */
-   /* background: linear-gradient(to right, #1a1919, #161318, #031316);  */
-   border-radius: 8px;
-    box-shadow: inset -3px -3px rgba(0, 0, 0, 0.5);
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 1rem;
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&family=Poppins:wght@300;400;500&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.2s linear;
+  text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
+  color: rgb(51, 56, 51)
 }
-  
- .body {
-    min-height: 150vh;
-    display: flex;
-    justify-content: center;
-    font-weight: 400;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-    font-family: sans-serif;
-   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color:#ffffff;
+
+ 
+
+main{
+background: url("https://africantalentfootball.com/wp-content/uploads/Home-page-Hero-Image-2.jpg") center;
+}
+.btn{
+  margin-top: 2rem;
+  width: 150px;
+  padding: 12px;
+  color: #fff;
+  background: tomato;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn:hover{
+  background: rgba(212, 48, 48, 0.76);
+  transition: 0.4s;
+}
+/* Header */
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 8%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  justify-content: space-between;
+  background: black;
+}
+.header .logo{
+  font-size: 22px;
+  font-weight: bolder;
+  color: #fff;
+  padding-right: 10px;
+  margin-right: 20rem;
+}
+.header .logo i{
+  color: #fff;
+  padding: 0.5rem;
+}
+.header .navbar span{
+  font-size: 1.1rem;
+  margin: 0 1rem;
+  color: #fff;
+text-decoration: none;
+outline: none;
+
+}
+.header .navbar span:hover{
+  color: #baa6cf;
+}
+.header .btn{
+  background: transparent;
+  color: tomato;
+  border: 1px solid tomato;
+  font-size: 12px;
+  padding: 8px;
+}
+.navbar{
+    background: black;
+}
+
+
+
+/* Home Section */
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
   }
+  section{
+    padding: 50px 0 50px 0;
+  }
+  .home{
+    display: flex;
+  }
+  .home .max-width{
+    width: 100%;
+    display: flex;
+  }
+  .home .home-content{
+    width: 50%;
+    padding: 2rem;
+  }
+  .home h5{
+    color: #fff;
+    margin-top: 1.5rem;
+    font-size: 3rem;
+    font-family: 'Philosopher', sans-serif;
+  }
+  .home h6{
+      color: #fbba07;
+      margin-top: 6rem;
+      font-size: 1.5rem;
+      font-family: 'Philosopher', sans-serif;
+    }
+  .home p{
+    color: rgb(194, 191, 191);
+    margin-top: 1rem;
+    font-size: 1rem;
+    }
   
-  html, .App, #root, .outer {
+  .home .home-image{
+    width: 50%;
+  }
+  .home .home-image img{
     width: 100%;
     height: 100%;
   }
   
-  .navbar-light {
-    background-color: #ffffff;
-    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  
+  .mission{
+      display: flex;
+      flex-direction: column;
+     align-items: center;
+      width: 400px;
+      color: #fff;
+      
+  }
+  .about{
+      display: flex;
+    }
+    .about .max-width{
+      width: 80%;
+      display: flex;
+    }
+  .about .about-content{
+    width: 10%;
+    padding: 2rem;
+  }
+  .about h5{
+    color: #fff;
+    margin-top: 1.5rem;
+    font-size: 3rem;
+    font-family: 'Philosopher', sans-serif;
+  }
+  .about h6{
+      color: #fbba07;
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      font-family: 'Philosopher', sans-serif;
+    }
+  .about p{
+    color: rgb(194, 191, 191);
+    width: 500px;
+    margin-top: 1rem;
+    font-size: 1rem;
+    }
+  .about .about-image{
+    width: 50%;
+  }
+  .about .about-image img{
+    width: 100%;
+    height: 100%;
   }
   
-  .outer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
-  }
-  
-  .inner {
-    width: 450px;
-    margin: auto;
-    background: #ffffff;
-    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-    padding: 40px 55px 45px 55px;
-    border-radius: 15px;
-    transition: all .3s;
-  }
-  
-  .outer .form-control:focus {
-    border-color: #167bff;
-    box-shadow: none;
-  }
-  
-  .outer h3 {
-    text-align: center;
-    margin: 0;
-    line-height: 1;
-    padding-bottom: 20px;
-  }
-  
-  .custom-control-label {
-    font-weight: 400;
-  }
-  
-  button{
-    margin: 20px;
-    padding: 20px;
+  #link{
+    text-decoration: none
   }

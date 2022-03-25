@@ -5,7 +5,37 @@ const Profile = () => {
   const user= useSelector((state)=>state.auth.user)
 
   return (
-    <div className='profile'>
+    <div class="main">
+       <div className="flip-container">
+      <div className="flip-inner-container">
+        <div className="flip-front">
+          <img src="p1.jpg" />
+        </div>
+        <div className="flip-back">
+          <div className="profile-image">
+            <img src="p1.jpg" />
+            <h2>{user.name}</h2>
+            <p>Web Developer | Content Creator | Youtuber</p>
+
+            <ul>
+              <a href="#"><i className="fab fa-facebook-f"></i></a>
+              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="#"><i className="fab fa-youtube"></i></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+       
+  )
+}
+
+export default Profile
+
+
+{/* <div className='profile'>
       <button className="delete is-large"></button>
       <div className="card">
   <div className="card-image">
@@ -36,8 +66,4 @@ const Profile = () => {
 </div>
       
       
-      </div>
-  )
-}
-
-export default Profile
+      </div> */}

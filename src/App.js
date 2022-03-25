@@ -2,12 +2,11 @@ import React from 'react';
 import './App.css';
 import "./Bulma.css"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/navbar/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Home from './components/pages/Home';
 import About from "./components/pages/About"
-import Challenge from "./components//pages/Challenge"
+import Contact from "./components/pages/Contact"
 import Login from './components/priveRoute/Login';
 import SingUp from './components/priveRoute/SingUp';
 import Register from './components/profile/Register';
@@ -23,6 +22,7 @@ import {setAuth} from "./Util/setAuth"
 import { store } from './app/store';
 import Profile from './components/profile/Profile';
 import Admin from './components/Admin/Admin';
+import Navbar from './components/navbar/Navbar';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
@@ -64,7 +64,7 @@ function App() {
         } />
      <Route path="/" element={<Home />}/>
      <Route path="/about" element={<About/> } />
-     <Route path="/challenge" element={<Challenge/> } />
+     <Route path="/contact" element={<Contact/> } />
      <Route path="/login" element={ <ForceRedirect user={user}><Login /></ForceRedirect>
      }/>
      <Route path="/register" element={<ForceRedirect user={user}><Register/></ForceRedirect>}/>

@@ -25,10 +25,13 @@ const Login = () => {
 
   return (
     <div className='body'>
+    <div className='logContainer'>
+    <div className='login'>
        <form onSubmit={onSubmit}>
 
-<h3>Log in</h3>
-
+       <h1>Login</h1>
+                <hr/>
+                <p>Explore the World!</p>
 <Inputs
                 name="email"
                 label="Email"
@@ -45,14 +48,17 @@ const Login = () => {
                 onChangeHandler={onChangeHandler}
                 errors={errors.password}
               />
-              <div className="d-flex justify-content-between">
-              <button type="submit" className="btn btn-outline-primary">
-                  Save <i className="fa-solid fa-floppy-disk"></i>
-                </button> 
+                <button>Sig in</button>
+               <Link to="/singup"> <p>
+                   i didn't have account
+                </p>   </Link>         
               
-                <Link to="/register">I don't have account</Link>
-              </div>
 </form>
+    </div>
+    <div class="pic">
+            <img src="/foot.jpg"/>
+        </div>
+    </div>
     </div>
   )
 }
