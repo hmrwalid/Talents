@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {getProfiles} from "../../Redux/action/profilAction"
+import {getUsers} from "../../Redux/action/profilAction"
 import Profil from './Profil';
 
 
@@ -9,14 +9,15 @@ const Profiles = () => {
     const dispatch =useDispatch()
     const profiles = useSelector((state)=>state.profiles.profiles)
     const loadProfile = useSelector((state)=>state.profiles.loadProfile)
+    
     useEffect(()=>{
-        dispatch(getProfiles())
-    }, [])
+      dispatch(getUsers())
+  }, [])
     
 
   return (
       
-    <div>
+    <div style={{marginTop :"8.5rem"}}>
         <h1>Users</h1>
 
         {loadProfile? (<h3>loading ...</h3>)

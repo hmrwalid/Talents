@@ -2,10 +2,10 @@ import { ERRORS }  from "../typeAction";
 
 
 const initialState = {}
-  const errorReducer =(state = initialState, action)=>{
-  switch (action.type) {
+  const errorReducer =(state = initialState, {type, payload})=>{
+  switch (type) {
       case ERRORS:
-          return action.payload
+          return {...state, payload}
   
       default:
           return state

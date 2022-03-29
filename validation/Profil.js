@@ -3,7 +3,8 @@ const validator = require("validator");
 
 module.exports = function ValidateProfile(data) {
   let errors = {};
-
+  data.name = !isEmpty(data.name) ? data.name : "";
+  data.email = !isEmpty(data.email) ? data.email : "";
   data.age = !isEmpty(data.age) ? data.age : "";
   data.height = !isEmpty(data.height) ? data.height : "";
   data.weight = !isEmpty(data.weight) ? data.weight : "";
@@ -23,7 +24,12 @@ module.exports = function ValidateProfile(data) {
   if (validator.isEmpty(data.stronger_Foot)) {
     errors.stronger_Foot = "Required stronger_Foot";
   }
-  
+  if (validator.isEmpty(data.name)) {
+    errors.name = "Required name";
+  }
+  if (validator.isEmpty(data.email)) {
+    errors.email = "Required email";
+  }
 
 
   return {

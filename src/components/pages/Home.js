@@ -12,7 +12,7 @@ const Home = () => {
 
                 <h5> Where your dreams 
                     <br/>become a possibility.</h5>
-                <p>Make those dreams come true with our broad networks and unique programs.<br/>Our object is to provide talented players a pathway towards a professional football career. We’ve brokered many contracts with European teams and are constantly scouting new recruits.<br/> Subscribe and stay informed.</p>
+                <p>Make those dreams come true with our broad networks and unique programs.Our objective is to provide talented players a pathway towards a professional football career. We’ve brokered many contracts with European teams and are constantly scouting new recruits.</p>
             </div>
            
         </div>

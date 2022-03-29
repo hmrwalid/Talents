@@ -55,7 +55,7 @@ const Login = () => {
               
 </form>
     </div>
-    <div class="pic">
+    <div className="pic">
             <img src="/foot.jpg"/>
         </div>
     </div>

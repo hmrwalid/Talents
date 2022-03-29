@@ -186,5 +186,66 @@
     font-family: "Poppins", sans-serif;
     background: black
   }
+
+  /* Dashbord CSS */
+  .dshBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background: black;
+    font-family: "Poppins", sans-serif;
+}
+
+.wrapper{
+
+margin-bottom: 50%; 
+ background: #fff;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.h1-dsh{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #fbba07;
+}
+
+.about-section{
+    display: flex;
+}
+
+.img_dsh{
+    width: 200px;
+    border: solid red;
+    /* margin: 10px; */
+    border-radius: 10px;
+    box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.4);
+    margin-bottom: 3rem;
+}
+
+.p_dsh{
+    margin: 10px;
+}
+.btn_dsh{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    padding: 8px 12px;
+    background: #6c7174;
+    margin: 25px 20px 0 0;
+    color: white;
+    border-radius: 6px;
+    width: 60%;
+}
+button:hover{
+    box-shadow: 0px 10px 15px rgba(231, 235, 186, 0.3);
+}
+
     
 

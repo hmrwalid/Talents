@@ -1,15 +1,16 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { deleteUser } from '../../Redux/action/profilAction'
 
 const Profil = ({profile}) => {
-    
+    const dispatch = useDispatch()
   return (
     <Table striped bordered hover>
     <thead>
       <tr>
         <th> User</th>
         <th>Email</th>
-        <th>Telephone</th>
         <th></th>
 
       </tr>
@@ -17,11 +18,11 @@ const Profil = ({profile}) => {
     <tbody>
       <tr>
        
-        <td>{profile.user.name}</td>
-        <td>{profile.user.email}</td>
-        <td>{profile.tel}</td>
+        <td>{profile.name}</td>
+        <td>{profile.email}</td>
+        
         <td>
-        <button className="btn btn-outline-danger" >Delete</button>
+        <button className="btn btn-outline-danger" onClick={()=>dispatch(deleteUser(profile._id))} >Delete</button>
         </td>
       </tr>
      

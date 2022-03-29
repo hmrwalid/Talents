@@ -1,17 +1,13 @@
 import axios from "axios";
-import { DELETE_PROFILE, ERRORS, SET_PROFILE, SET_PROFILES , GET_USERS_LOAD} from "../typeAction";
+import { EDIT_USER, ERRORS, GET_USERS_LOAD, SET_PROFILE, SET_PROFILES, TOGGLE_FALSE, TOGGLE_TRUE } from "../typeAction";
 
 
-
-
-
-
-
-export const getProfiles = ()=>dispatch=>{
+/* get all users*/
+export const getUsers = ()=>dispatch=>{
     dispatch({type: GET_USERS_LOAD})
 
     axios
-      .get("/api/profiles")
+      .get("/api/")
       .then(res => {
           dispatch({
               type: SET_PROFILES,
@@ -25,72 +21,66 @@ export const getProfiles = ()=>dispatch=>{
           })
       });
 }
-
-
-export const GetProfile = ()=>dispatch=>{
-    axios
-      .get("/api/profile")
-      .then(res => {
-          dispatch({
-              type: SET_PROFILE,
-              payload: res.data
-          })
-          dispatch({
-            type: ERRORS,
-            payload: {}
-        })
-      })
-      .catch(err => {
-          dispatch({
-              type: ERRORS,
-              payload: err.response.data
-          })
-      });
-}
-
-
-
-export const AddProfile = (form, setShow, setMessage)=>dispatch=>{
-    axios
-      .post("/api/profiles", form)
-      .then(res => {
-        setShow(true)
-        setMessage("User added with success")
+/* get single user */
+export const getUser= (id)=>(dispatch)=>{
+    axios.get(`/api/profile/me`)
+    .then ((res)=>dispatch({type:SET_PROFILE, payload:res.data.response}))
+    .catch(err=>{
         dispatch({
             type: ERRORS,
-            payload: {}
+            payload: err.response
+        })    })
+}
+
+/* delete user */
+export const deleteUser = (id)=>(dispatch)=>{
+    axios.delete(`api/${id}`)
+    .then((res)=>dispatch(getUsers()))
+    .catch(err=>{
+        dispatch({
+            type: ERRORS,
+            payload: err.res.data
         })
-        setTimeout(() => {
-            setShow(false)
-        }, 4000);
-      })
-      .catch(err => {
-          dispatch({
-              type: ERRORS,
-              payload: err.response.data
-          })
-      });
+    })
 }
 
 
-
-
-
-export const DeleteProfile = (id)=>dispatch=>{
-    if(window.confirm("are you sure to delete this user?")){
-     axios
-     .delete(`/api/profiles/${id}`)
-     .then(res => {
-         dispatch({
-             type: DELETE_PROFILE,
-             payload: id
-         })
-     })
-     .catch(err => {
-         dispatch({
-             type: ERRORS,
-             payload: err.response.data
-         })
-     });
+/* create profile*/
+export const CreateProfile= (profile)=> async(dispatch)=>{
+    try {
+        await axios.post(`/api/profiles`, profile)
+        dispatch (getUser())
+    } catch (err) {
+        dispatch({
+            type: ERRORS,
+            payload: err.response.data
+        })
     }
- }
+}
+
+export const  editProfile= (id, user)=>(dispatch)=>{
+    axios.put(`/api/${id}`, user)
+    .then((res)=>{
+        dispatch ({type: EDIT_USER, payload: res.data.response})
+    })
+    .then (dispatch(getUser()))
+    .catch(err=>{
+        dispatch({
+            type: ERRORS,
+            payload: err.response.data
+        })
+    })
+}
+
+
+export const toggleTrue=()=>{
+    return {
+        type: TOGGLE_TRUE
+    }
+}
+
+export const toggleFalse=()=>{
+    return {
+        type: TOGGLE_FALSE
+    }
+}

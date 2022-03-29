@@ -57,6 +57,8 @@ function App() {
             <Profile />
           </PrivateRouter>
         } />
+        <Route exact path="/profile/:id" element={<Profile/>}/>
+
          <Route path="/admin" element={
           <AdminRouter user={user}>
             <Admin />

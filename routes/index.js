@@ -7,8 +7,9 @@ const {
 } = require("../controllers/user.controller");
 const passport = require('passport')
 var router = express.Router();
+const auth = require('../middellware/auth')
 const { ROLES, inRole } = require("../security/RoleMiddelware");
-const { AddProfile, FindAllProfiles, FindSingleProfile, DeleteProfile } = require("../controllers/profil.controller");
+const {  FindAllProfiles, FindSingleProfile, DeleteProfile,  CreateProfile,  } = require("../controllers/profil.controller");
 
 /* users routes. */
 router.post("/register", Register);
@@ -23,21 +24,23 @@ router.post("/login", Login);
 /* add profile route */
 router.post("/profiles", 
 passport.authenticate("jwt", { session: false }),
-AddProfile);
+CreateProfile);
+
 /* get all profiles */
-router.get("/profiles", 
+router.get("/", 
 passport.authenticate("jwt", { session: false }),
-inRole(ROLES.ADMIN),
+
 FindAllProfiles);
-/* get one profiles */
-router.get("/profile", 
+/* get one profile */
+router.get("/profile/me", 
 passport.authenticate("jwt", { session: false }),
 FindSingleProfile);
 /* delete profiles */
-router.delete("/profiles/:id", 
+router.delete("/:id", 
 passport.authenticate("jwt", { session: false }),
-inRole(ROLES.ADMIN),
+
 DeleteProfile);
+
 
 module.exports = router;
 
