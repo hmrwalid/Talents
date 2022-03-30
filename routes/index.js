@@ -7,7 +7,6 @@ const {
 } = require("../controllers/user.controller");
 const passport = require('passport')
 var router = express.Router();
-const auth = require('../middellware/auth')
 const { ROLES, inRole } = require("../security/RoleMiddelware");
 const {  FindAllProfiles, FindSingleProfile, DeleteProfile,  CreateProfile,  } = require("../controllers/profil.controller");
 

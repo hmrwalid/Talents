@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require('passport')
 var indexRouter = require('./routes/index');
+var postRouter = require('./routes/PostRoute')
 const app = express();
 app.use (express.json())
 connectDB();
@@ -16,6 +17,7 @@ app.use(cookieParser());
 app.use(express.static('build'));
 
 app.use('/api', indexRouter); //http://localhost:5000/api
+app.use('/api/post', postRouter) //http://localhost:5000/api/post
 
 /* passport */
 app.use(passport.initialize())
