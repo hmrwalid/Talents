@@ -1,13 +1,17 @@
 export const SET_USER = "SET_USER";
 export const ERRORS = "ERRORS";
 
-export const GET_USERS_LOAD ="GET_USER_LOAD";
-export const DELETE_PROFILE ="DELETE_PROFILE";
-export const SET_PROFILES = "SET_PROFILES";
 
-export const SET_PROFILE= 'SET_PROFILE';
 
-export const EDIT_USER= "EDIT_USER"
+export const GET_PROFILE = 'GET_PROFILE';
+export const GET_PROFILES = 'GET_PROFILES';
+export const GET_REPOS = 'GET_REPOS';
+export const NO_REPOS = 'NO_REPOS';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const PROFILE_ERROR = 'PROFILE_ERROR';
 
-export const TOGGLE_FALSE="TOGGLE_FALSE"
-export const TOGGLE_TRUE="TOGGLE_TRUE"
+export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
+
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';

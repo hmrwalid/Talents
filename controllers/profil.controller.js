@@ -1,6 +1,6 @@
 const ProfileModel = require('../models/Profil')
+const User = require('../models/User')
 const ValidateProfile = require("../validation/Profil")
-const auth = require("../middellware/auth")
 const CreateProfile = async (req ,res)=>{
    const {errors, isValid} = ValidateProfile(req.body)
     
@@ -20,6 +20,7 @@ const CreateProfile = async (req ,res)=>{
       address,
       tel,
       city,
+      Favorite_position
   }  = req.body
   // Build profile
   const profileFields = {};
@@ -36,6 +37,8 @@ const CreateProfile = async (req ,res)=>{
   if (address) profileFields.address = address;
   if (tel) profileFields.tel = tel;
   if (city) profileFields.city = city;
+  if (Favorite_position) profileFields.Favorite_position = Favorite_position;
+
 
   try {
       let profile = await ProfileModel.findOne({ user: req.user.id });
@@ -93,28 +96,30 @@ const FindSingleProfile = async (req ,res)=>{
 
 const DeleteProfile = async (req ,res)=>{
     try {
-        const result =await ProfileModel.deleteOne({_id:req.params.id})
-        res.status(200).send({response:result, message:"deleting user by id successful"})
-    } catch (error) {
-        res.status(400).send({message:"can not delete  user"})
+    //   // Remove posts
+    //   await Post.deleteMany({ user: req.user.id });
+  
+      // Remove profile
+      await ProfileModel.findOneAndRemove({ user: req.user.id });
+  
+      // Remove user
+      await User.findOneAndRemove({ _id: req.user.id });
+  
+      res.json({ msg: 'User Deleted' });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Serrver Error');
     }
-}
+  };
 
-const UpdateProfile = async(req, res)=>{
-    try {
-        const result=await ProfileModel.updateOne({_id:req.params.id}, {$set:{...req.body}})
-            res.send({message:'profile updated'})
-    } catch (error) {
-        res.send(400).send({message: "update unsuccessful"})
-    }
-}
+
 
 module.exports = {
     CreateProfile,
     FindAllProfiles,
     FindSingleProfile,
     DeleteProfile,
-    UpdateProfile
+    
 }
 
 

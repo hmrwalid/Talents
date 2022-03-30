@@ -20,9 +20,9 @@ import jwt_decode from 'jwt-decode'
 import { Logout, setUser } from './Redux/action/AuthAction';
 import {setAuth} from "./Util/setAuth"
 import { store } from './app/store';
-import Profile from './components/profile/Profile';
 import Admin from './components/Admin/Admin';
 import Navbar from './components/navbar/Navbar';
+import ProfileForm from './components/profile/ProfileForm';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
@@ -52,12 +52,16 @@ function App() {
             <Dashboard />
           </PrivateRouter>
         } />
-        <Route path="/profile" element={
+        <Route path="/edit-profile" element={
           <PrivateRouter user={user}>
-            <Profile />
+            <ProfileForm />
           </PrivateRouter>
         } />
-        <Route exact path="/profile/:id" element={<Profile/>}/>
+         <Route path="/create-profile" element={
+          <PrivateRouter user={user}>
+            <ProfileForm />
+          </PrivateRouter>
+        } />
 
          <Route path="/admin" element={
           <AdminRouter user={user}>

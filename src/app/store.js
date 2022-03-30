@@ -1,14 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '../Redux/reducers/AuthReducer';
 import errorReducer from '../Redux/reducers/errorReducer';
-import userReducer from '../Redux/reducers/ProfilReducer'
-import { editReducer } from '../Redux/reducers/CreateProfileReducer';
+import profileReducer from '../Redux/reducers/Profil2.re';
+import alertReducer from "../Redux/reducers/alertReducer"
 export const store = configureStore({
   reducer: {
     auth : authReducer,
-    profiles: userReducer,
+    profile: profileReducer,
     errors: errorReducer,
-    editReducer:editReducer
-   
+    alert: alertReducer,
   },
 });

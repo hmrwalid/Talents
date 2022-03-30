@@ -23,6 +23,8 @@ const UserProfile = new Schema(
     address: {type: String},
     tel: {type: String},
     city: {type: String},
+    Favorite_position: {type: String},
+
     
   },
   {

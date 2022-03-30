@@ -36,7 +36,7 @@ router.get("/profile/me",
 passport.authenticate("jwt", { session: false }),
 FindSingleProfile);
 /* delete profiles */
-router.delete("/:id", 
+router.delete("/profile/me", 
 passport.authenticate("jwt", { session: false }),
 
 DeleteProfile);
