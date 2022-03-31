@@ -5,7 +5,7 @@ const initialState = {}
   const errorReducer =(state = initialState, {type, payload})=>{
   switch (type) {
       case ERRORS:
-          return {...state, payload}
+          return  payload
   
       default:
           return state

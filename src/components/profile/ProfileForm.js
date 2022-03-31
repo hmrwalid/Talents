@@ -7,7 +7,6 @@ const ProfileForm = () => {
     const profile = useSelector((state)=>state.profile.profile)
     const loading = useSelector((state)=>state.profile.loading)
     const dispatch =useDispatch()
-    console.log(profile)
     const initialState = {
         name: '',
         email: '',
@@ -86,14 +85,26 @@ const ProfileForm = () => {
    <div className='form-group'>
           <select name='Favorite_position' value={Favorite_position} onChange={onChange}>
             <option> Select your Favorite position</option>
-            <option value='Developer'>Developer</option>
-            <option value='Junior Developer'>Junior Developer</option>
-            <option value='Senior Developer'>Senior Developer</option>
-            <option value='Manager'>Manager</option>
-            <option value='Student or Learning'>Student or Learning</option>
-            <option value='Instructor'>Instructor or Teacher</option>
-            <option value='Intern'>Intern</option>
-            <option value='Other'>Other</option>
+            <option value='Goalkeeper (GK)'>Goalkeeper (GK) </option>
+            <option value='Centre-Back (CB)'>Centre-Back (CB)</option>
+            <option value='right-back (RB)'>right-back (RB)</option>
+            <option value='left-back(LB)'>left-back(LB)</option>
+            <option value='right wing-back(RWB)'>right wing-back(RWB)</option>
+            <option value='left wing-back(LWB)'>left wing-back(LWB)</option>
+            <option value='defensive midfielder(DM)'> defensive midfielder(DM)</option>
+            <option value='Central Midfielder (CM)'>Central Midfielder (CM)</option>
+            <option value='Left Midfielder (LM)'>Left Midfielder (LM)</option>
+            <option value='Right Midfielder (RM)'>Right Midfielder (RM)</option>
+            <option value='Right Wing Forward (RWF)'>Right Wing Forward (RWF)</option>
+            <option value='Left Wing Forward (LWF)</'> Left Wing Forward (LWF)</option>
+            <option value='Central Attacking Midfielder (CAM)'> Central Attacking Midfielder (CAM)</option>
+            <option value='Centre Forward (CF)'> Centre Forward (CF)</option>
+
+            Central Attacking Midfielder (CAM)
+
+
+
+
           </select>
           <small className='form-text'>
             Give us an idea of your Favorite position

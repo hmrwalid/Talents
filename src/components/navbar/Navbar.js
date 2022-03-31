@@ -17,7 +17,6 @@ const Navbar = () => {
         </span></Link>
         <nav className="navbar">
           <Link to='/'> <span>Home</span> </Link>
-          <Link to='/contact'> <span>Contact</span></Link>
           <Link to='about'> <span>About us</span></Link>
                          <span>|</span>
               
@@ -32,7 +31,7 @@ const Navbar = () => {
                  <Link to='#' > <span className="btn" onClick={handelLogout}>Logout</span></Link>                </>
               ):(
                 <>
-                
+                   <Link to='/posts'> <span>Posts</span></Link>
                   <Link to='/dashbord' > <span className="btn">{user.user.name}</span></Link>
                   <Link to='#' > <span className="btn" onClick={handelLogout}>Logout</span></Link>
                   

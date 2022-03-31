@@ -41,6 +41,8 @@ export const loginAction = (form, navigate)=>dispatch=>{
             type: ERRORS,
             payload: err.response.data
         })
+        console.log(err.response.data)
+
     })
 }
 

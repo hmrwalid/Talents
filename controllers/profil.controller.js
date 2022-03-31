@@ -1,5 +1,6 @@
 const ProfileModel = require('../models/Profil')
 const User = require('../models/User')
+const Post = require('../models/Posts')
 const ValidateProfile = require("../validation/Profil")
 const CreateProfile = async (req ,res)=>{
    const {errors, isValid} = ValidateProfile(req.body)
@@ -97,7 +98,7 @@ const FindSingleProfile = async (req ,res)=>{
 const DeleteProfile = async (req ,res)=>{
     try {
     //   // Remove posts
-    //   await Post.deleteMany({ user: req.user.id });
+      await Post.deleteMany({ user: req.user.id });
   
       // Remove profile
       await ProfileModel.findOneAndRemove({ user: req.user.id });
@@ -124,11 +125,3 @@ module.exports = {
 
 
 
-// const user=await ProfileModel.findOne({email:req.body.email}).populate('user', ["name", "email", "role"])
-// if (user){
-//     res.status(400).send({message: "user already exists"})
-//     return;
-// }
-// const response=await newProfile.save()
-// res.send({response:response, message:'A new profile has been created'})
-// }

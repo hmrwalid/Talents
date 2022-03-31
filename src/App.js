@@ -6,11 +6,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Home from './components/pages/Home';
 import About from "./components/pages/About"
-import Contact from "./components/pages/Contact"
 import Login from './components/priveRoute/Login';
 import SingUp from './components/priveRoute/SingUp';
 import Register from './components/profile/Register';
-import NotFound from './components/pages/NotFound';
 import NoAcces from './components/pages/NoAcces';
 import Dashboard from './components/profile/Dashboard';
 import PrivateRouter from './components/priveRoute/PrivetRoutr';
@@ -23,6 +21,9 @@ import { store } from './app/store';
 import Admin from './components/Admin/Admin';
 import Navbar from './components/navbar/Navbar';
 import ProfileForm from './components/profile/ProfileForm';
+import Posts from './components/posts/Posts';
+import Post from './components/Post/Post';
+import NotFound from './components/layout/NotFound';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
@@ -70,11 +71,16 @@ function App() {
         } />
      <Route path="/" element={<Home />}/>
      <Route path="/about" element={<About/> } />
-     <Route path="/contact" element={<Contact/> } />
      <Route path="/login" element={ <ForceRedirect user={user}><Login /></ForceRedirect>
      }/>
      <Route path="/register" element={<ForceRedirect user={user}><Register/></ForceRedirect>}/>
      <Route path="/singup" element={<SingUp/>}/>
+     <Route path='posts' element={  <PrivateRouter user={user}>
+            <Posts />
+          </PrivateRouter> } />
+          <Route path='posts/:id' element={ <PrivateRouter user={user}>
+            <Post />
+          </PrivateRouter> } />
      <Route path="*" element={<NotFound/>}/>
      <Route path="/noaccess" element={<NoAcces/>}/>
 
@@ -84,7 +90,12 @@ function App() {
      
  
    </Routes>
-     
+     <footer>
+       <div style={{display:'flex', justifyContent:"space-between"}}>
+         <h5>COPYRIGHT © 2021 GOLDEN TALENT  - ALL RIGHTS RESERVED.</h5>
+         <h5>WWW.GOLDEN_TALENT.COM</h5>
+       </div>
+     </footer>
     </div>
     </Router>
   );

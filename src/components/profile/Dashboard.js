@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  Link } from 'react-router-dom'
 import { Button, Card, Image } from 'semantic-ui-react'
-import { deleteAccount } from '../../Redux/action/ActionProfil'
+import { deleteAccount, getCurrentProfile } from '../../Redux/action/ActionProfil'
 
 import DashboardActions from './DashboardActions'
 
@@ -10,7 +10,10 @@ const Dashboard = () => {
  
   const user= useSelector((state)=>state.auth.user)
   const profile= useSelector((state)=>state.profile.profile)
-
+   console.log(profile)
+   useEffect(() => {
+    getCurrentProfile();
+  }, [getCurrentProfile]);
  
   return (
     <div  style={{marginTop:"20rem"}}> 
