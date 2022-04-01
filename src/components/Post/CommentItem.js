@@ -24,8 +24,7 @@ const CommentItem = ( {postId, comment: { _id, text, name,  user, date },}) => {
       <p class='my-1'>{text}</p>
 
       <p className='post-date'>Posted on {formatDate(date)}</p>
-
-      {!loading && user === auth.user._id && (
+       
         <button
           onClick={(e) =>dispatch(deleteComment(postId, _id))}
           type='button'
@@ -33,7 +32,7 @@ const CommentItem = ( {postId, comment: { _id, text, name,  user, date },}) => {
         >
           <i className='fas fa-times' />
         </button>
-      )}
+      
     </div>
   </div>
     </div>

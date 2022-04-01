@@ -96,14 +96,9 @@ const ProfileForm = () => {
             <option value='Left Midfielder (LM)'>Left Midfielder (LM)</option>
             <option value='Right Midfielder (RM)'>Right Midfielder (RM)</option>
             <option value='Right Wing Forward (RWF)'>Right Wing Forward (RWF)</option>
-            <option value='Left Wing Forward (LWF)</'> Left Wing Forward (LWF)</option>
+            <option value='Left Wing Forward (LWF)'> Left Wing Forward (LWF)</option>
             <option value='Central Attacking Midfielder (CAM)'> Central Attacking Midfielder (CAM)</option>
             <option value='Centre Forward (CF)'> Centre Forward (CF)</option>
-
-            Central Attacking Midfielder (CAM)
-
-
-
 
           </select>
           <small className='form-text'>

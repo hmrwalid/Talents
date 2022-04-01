@@ -1,17 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Profile from './Profile'
 
 const DashboardActions = () => {
   return (
     <div>
-
+  
+     <Profile/>
       
-           <div className='dash-buttons'>
-      <Link to='/edit-profile' className='btn'>
-        <i className='fas fa-id-card text-primary'></i> Edit Profile
-      </Link>
-
-    </div>
+     
     </div>
   )
 }

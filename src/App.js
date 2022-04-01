@@ -24,6 +24,7 @@ import ProfileForm from './components/profile/ProfileForm';
 import Posts from './components/posts/Posts';
 import Post from './components/Post/Post';
 import NotFound from './components/layout/NotFound';
+import Profile from './components/profile/Profile';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
@@ -37,6 +38,8 @@ if(window.localStorage.jwt){
 }
 
 function App() {
+  
+
 
   const auth = useSelector(state => state.auth)
   const user = {
@@ -61,6 +64,11 @@ function App() {
          <Route path="/create-profile" element={
           <PrivateRouter user={user}>
             <ProfileForm />
+          </PrivateRouter>
+        } />
+         <Route path="/profile" element={
+          <PrivateRouter user={user}>
+            <Profile />
           </PrivateRouter>
         } />
 
@@ -90,11 +98,9 @@ function App() {
      
  
    </Routes>
-     <footer>
-       <div style={{display:'flex', justifyContent:"space-between"}}>
-         <h5>COPYRIGHT © 2021 GOLDEN TALENT  - ALL RIGHTS RESERVED.</h5>
-         <h5>WWW.GOLDEN_TALENT.COM</h5>
-       </div>
+     <footer  style={{display:'flex', justifyContent:"space-between"}} >
+        <footer className='footer'>COPYRIGHT © 2021 GOLDEN TALENT  - ALL RIGHTS RESERVED</footer> 
+        <footer className='footer'>WWW.GOLDEN_TALENT.COM</footer>  
      </footer>
     </div>
     </Router>

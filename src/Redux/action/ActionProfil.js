@@ -80,9 +80,9 @@ async (dispatch) => {
 
 // Delete Account & Profile
 export const deleteAccount = () => async (dispatch) => {
-    if (window.confirm('Are you sure? This can NOT be UNDONE!')) {
+    if (window.confirm('Are you sure to delete your profile')) {
       try {
-        await axios.delete('/api/profile');
+        await axios.delete('/api/profile/me');
   
         dispatch({ type: CLEAR_PROFILE });
         dispatch({ type: ACCOUNT_DELETED });

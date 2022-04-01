@@ -1,22 +1,24 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  Link } from 'react-router-dom'
+import {  Link, useParams } from 'react-router-dom'
 import { Button, Card, Image } from 'semantic-ui-react'
 import { deleteAccount, getCurrentProfile } from '../../Redux/action/ActionProfil'
 
 import DashboardActions from './DashboardActions'
 
 const Dashboard = () => {
- 
+  const dispatch= useDispatch()
   const user= useSelector((state)=>state.auth.user)
   const profile= useSelector((state)=>state.profile.profile)
-   console.log(profile)
-   useEffect(() => {
-    getCurrentProfile();
+  const post = useSelector((state)=>state.post.post)
+  const loading = useSelector((state)=>state.post.loading)
+  useEffect(() => {
+    dispatch(getCurrentProfile());
   }, [getCurrentProfile]);
  
+ 
   return (
-    <div  style={{marginTop:"20rem"}}> 
+    <div   style={{display:"flex", justifyContent:"column",marginTop:"6rem"}}> 
      <section className='container'>
       <h1 className='large text-primary'>Dashboard</h1>
 
@@ -25,16 +27,10 @@ const Dashboard = () => {
       </p>
 
       {profile !== null ? (
-        <>
+        <div style={{display:"flex", justifyContent:"center",}}>
+
           <DashboardActions />
-
-
-          <div className='my-2'>
-            <button className='btn btn-danger' onClick={() => deleteAccount()}>
-              <i className='fas fa-user-minus' /> Delete My Account
-            </button>
-          </div>
-        </>
+        </div>
       ) : (
         <>
           <p>You have not yet setup a profile, please add some info</p>

@@ -119,3 +119,8 @@ Link{
     background: rgba(212, 48, 48, 0.76);
     transition: 0.4s;
   }
+
+  footer{
+      height: 100px;
+      width: 100%;
+color: #806824;    }

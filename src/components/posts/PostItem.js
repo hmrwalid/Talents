@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { addLike, deletePost, removeLike } from '../../Redux/action/PostAction';
+import { addLike, deletePost, removeLike, getPost } from '../../Redux/action/PostAction';
 import formatDate from '../../Util/formDate'
 
 const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
+
   showActions}) => {
+    
    const dispatch= useDispatch();
    const loading = useSelector((state)=>state.post.loading)
    const auth = useSelector((state)=>state.auth)
@@ -44,8 +46,8 @@ const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
             <i className='fas fa-thumbs-down' />
           </button>
 
-          <Link to={`/posts/${_id}`} className='btn btn-primary'>
-            Discussion{' '}
+          <Link to={`/posts/${_id}`} >
+          <button className='btn btn-primary' onClick={console.log(dispatch(getPost(_id)))} > discussion</button>
             {comments.length > 0 && (
               <span className='comment-count'>{comments.length}</span>
             )}
@@ -59,7 +61,9 @@ const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
             >
               <i className='fas fa-times' />
             </button>
-          )}
+      
+          
+          )} 
         </>
        )} 
     </div>

@@ -2,7 +2,7 @@ import { ADD_COMMENT, ADD_POST, DELETE_POST, GET_POST, GET_POSTS, POST_ERROR, RE
 
 const initialState = {
     posts: [],
-    post: null,
+    post: {},
     loading: true,
     error: {},
   };
