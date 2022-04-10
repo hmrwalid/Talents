@@ -1,5 +1,7 @@
 import axios from 'axios'
 import Axios  from 'axios'
+
+
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -7,32 +9,44 @@ import { deleteAccount, getCurrentProfile } from '../../Redux/action/ActionProfi
 import Upload from './Upload'
 
 const Profile = () => {
+  
     const dispatch = useDispatch()
     const profile= useSelector((state)=>state.profile.profile)
   const loading = useSelector((state)=>state.post.loading)
-  useEffect(() => {
-    dispatch(getCurrentProfile());
-  }, [getCurrentProfile]);
-  // upload image and video
-//   const [image, setImage] = useState('')
-//  const uploadImage =()=>{
-//     const formData = new FormData()
-//     formData.append("file", image)
-//     formData.append("upload_preset", "e9qgdmbj")
-//     Axios.post("https://api.cloudinary.com/v1_1/walid1996/image/upload", formData).then((response)=>{
-//         console.log(response)
-//     })
 
-//     }
- 
+
+  // useEffect(() => {
+  //   dispatch(getCurrentProfile());
+  // }, [getCurrentProfile]);
+//   // uoload image
+
+ const [file, setFile] = useState("")
+      const onChangeInput=(event)=>{
+         const file = event.target.files[0];
+         if(file && event.target.files.length>0){
+          setFile(file)
+         }
+      }
+ const send = async(e) =>{
+      const data = new FormData()
+        data.append("image", file)
+        await axios.post("http://localhost:5000/upload", data)
+        .then((res)=>{
+          console.log(res)
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+         alert(URL.createObjectURL(file) )
+      }
   return (
 
                <div className="card" style={{marginTop:'20px' , width:"500px" }}>
-        <div className="card-image">
-            <figure>
-            <Upload />
-           </figure>
-        </div>
+          <form  >
+             <input type='file' name='image' onChange={onChangeInput}/>
+          </form>
+          <button type='submit' onClick={send}>Upload</button>
+      {file && (<>  <img src={URL.createObjectURL(file)} alt="profile"  /> </>) }
         <div className="card-content">
           <div className="media">
             <div className="media-left">
@@ -51,7 +65,7 @@ const Profile = () => {
           </div>
           <div className="card">
         <footer className="card-footer" style={{display:"flex", justifyContent:"space-between"}}>
-          <button className="card-footer-item btn-primary">Edit</button>
+        <Link to='/edit-profile'><button className="card-footer-item btn-primary">Edit</button></Link>
           <button className="card-footer-item  btn-danger"  onClick={() => dispatch(deleteAccount())}>Delete</button>
         </footer>
       </div>
@@ -64,9 +78,3 @@ const Profile = () => {
 
 export default Profile
 
-{/* <div className="card">
-        <footer className="card-footer" style={{display:"flex", justifyContent:"space-between"}}>
-        <Link to='/edit-profile'><button style={{width :"100%"}} className="card-footer-item btn-primary">Edit</button></Link>  
-          <button style={{width :"40%"}} className="card-footer-item btn-danger"  onClick={() => dispatch(deleteAccount())}>Delete</button>
-        </footer>
-      </div> */}

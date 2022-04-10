@@ -80,7 +80,7 @@ async (dispatch) => {
 
 // Delete Account & Profile
 export const deleteAccount = () => async (dispatch) => {
-    if (window.confirm('Are you sure to delete your profile')) {
+    if (window.confirm('Are you sure to delete the profile')) {
       try {
         await axios.delete('/api/profile/me');
   

@@ -7,8 +7,7 @@ import PostItem from '../posts/PostItem'
 import CommentForm from './CommentForm'
 import CommentItem from './CommentItem'
 
-  // const id =useSelector((state)=>state.post.posts._id)
-  // console.log(id)
+
  
 
 const Post = () => {

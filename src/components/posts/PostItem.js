@@ -47,7 +47,7 @@ const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
           </button>
 
           <Link to={`/posts/${_id}`} >
-          <button className='btn btn-primary' onClick={console.log(dispatch(getPost(_id)))} > discussion</button>
+          <button className='btn btn-primary' onClick={console.log(dispatch(getPost(_id)))}   > discussion</button>
             {comments.length > 0 && (
               <span className='comment-count'>{comments.length}</span>
             )}

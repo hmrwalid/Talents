@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ProfilCard from '../ProfilCard/ProfilCard'
 
 const Home = () => {
   return (
@@ -16,19 +17,10 @@ const Home = () => {
             </div>
            
         </div>
+
          </section>
-         <section className="about">
-            <div className="max-width">
-                <div className="home-content">
-                    <h5>Our Mission</h5>
-    
-                    <h6>Finding Gold</h6>
-                    <p id="para">Our goal is finding Golden Talent in the Soccer World by creating unique opportunities so the right people see undeniable talent. Finding gold in such a large industry can be like trying to find a needle in a haystack. With our networks and programs, we have made that process easier, funner and more memorable.</p>
-                      <Link to="/about"><span id="link" >Learn more about us</span></Link> 
-                </div>
-               
-            </div>
-             </section>
+         <ProfilCard/>
+
             </main>
       </div>
   

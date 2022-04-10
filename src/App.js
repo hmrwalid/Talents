@@ -25,6 +25,7 @@ import Posts from './components/posts/Posts';
 import Post from './components/Post/Post';
 import NotFound from './components/layout/NotFound';
 import Profile from './components/profile/Profile';
+import Footer from './components/layout/Footer';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
@@ -93,16 +94,15 @@ function App() {
      <Route path="/noaccess" element={<NoAcces/>}/>
 
 
-
+       
 
      
  
    </Routes>
-     <footer  style={{display:'flex', justifyContent:"space-between"}} >
-        <footer className='footer'>COPYRIGHT © 2021 GOLDEN TALENT  - ALL RIGHTS RESERVED</footer> 
-        <footer className='footer'>WWW.GOLDEN_TALENT.COM</footer>  
-     </footer>
+     
     </div>
+    <footer ><Footer/></footer>
+
     </Router>
   );
 }

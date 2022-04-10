@@ -5,13 +5,14 @@ import { deleteComment } from '../../Redux/action/PostAction'
 import formatDate from '../../Util/formDate'
 
 const CommentItem = ( {postId, comment: { _id, text, name,  user, date },}) => {
-  const loading = useSelector((state)=>state.post.loading)
-  const auth = useSelector((state)=>state.auth)
+  const authId = useSelector((state)=>state.auth.user._id)
+  const postUser = useSelector((state)=>state.post.posts.user)
+
  const dispatch= useDispatch()
 
   return (
     <div>
-       <div class='post bg-white p-1 my-1'>
+       <div className='post bg-white p-1 my-1'>
     <div>
       <Link to={`/profile/${user}`}>
         
@@ -21,17 +22,22 @@ const CommentItem = ( {postId, comment: { _id, text, name,  user, date },}) => {
     </div>
 
     <div>
-      <p class='my-1'>{text}</p>
+      <p className='my-1'>{text}</p>
 
       <p className='post-date'>Posted on {formatDate(date)}</p>
-       
-        <button
+        {authId=== postUser?  
+         (<>
+         <button
           onClick={(e) =>dispatch(deleteComment(postId, _id))}
           type='button'
           className='btn btn-danger'
         >
           <i className='fas fa-times' />
         </button>
+         </>):
+        (<>
+        </>)}
+        
       
     </div>
   </div>
