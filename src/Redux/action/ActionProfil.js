@@ -48,7 +48,7 @@ export const createProfile =
 (formData, navigate, edit = false) =>
 async (dispatch) => {
   try {
-    const res = await axios.post('/api/profiles', formData);
+   const res = await axios.post('/api/profiles', formData);
 
     dispatch({
       type: GET_PROFILE,

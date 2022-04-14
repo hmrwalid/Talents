@@ -4,11 +4,9 @@ import Profile from './Profile'
 
 const DashboardActions = () => {
   return (
-    <div>
-  
+    <div className='profile'>
      <Profile/>
       
-     
     </div>
   )
 }

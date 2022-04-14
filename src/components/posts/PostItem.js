@@ -53,7 +53,7 @@ const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
             )}
           </Link>
 
-          {!loading && user === auth.user._id && (
+          {loading && user === auth.user._id && (
             <button
               onClick={(e) => dispatch(deletePost(_id))}
               type='button'

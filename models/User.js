@@ -11,7 +11,9 @@ const UserModel = new Schema(
     },
     password: "string",
     role: "string",
+   
   },
+  
   {
     timestamps: true,
   }

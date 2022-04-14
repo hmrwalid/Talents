@@ -1,23 +1,120 @@
-const multer= require("multer")
 var express = require("express");
-
 var router = express.Router();
+const {videoUpload,
+  imageUpload} = require('../cloudinary/multer')
+const {cloudinary} = require('../cloudinary/cloudinary')
+const Model = require('../models/ImagesVideo')
+const User = require("../models/User")
+const passport = require('passport')
 
+// upload images
+router.post("/",passport.authenticate("jwt", { session: false }), imageUpload.single("image"), async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public')
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname)
+      // Upload image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+  
+      // Create new user
+      let fileUpload = new Model({
+        avatar: result.secure_url,
+        video:result.secure_url,
+        cloudinary_id: result.public_id,
+        user: req.user.id,
+
+      });
+      // Save fileUpload
+      await fileUpload.save();
+      res.json(fileUpload);
+    } catch (err) {
+      console.log(err);
     }
-});
+  });
 
-const upload =multer({storage:storage});
-router.post('/', upload.single("image") ,(req, res)=>{
-  console.log(req.file);
-  res.send("image upload succes")
-})
+   /*************************** */
+   // get all images
+  router.get('/', passport.authenticate("jwt", { session: false }), async (req, res) => {
+    try {
+      const images = await Model.find().sort({ date: -1 });
+  
+      res.json(images);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  });
+  // get image by id
+  router.get('/:id', passport.authenticate("jwt", { session: false }), async (req, res) => {
+    try {
+      const image = await Model.findById(req.params.id);
+  
+      if (!image) return res.status(404).json({ msg: 'image not found' });
+  
+      res.json(image);
+    } catch (err) {
+      console.error(err.message);
+      if (err.kind == 'ObjectId')
+        return res.status(404).json({ msg: 'image not found' });
+      res.status(500).send('Server Error');
+    }
+  });
+
+   // Delete a image
+   router.delete('/:id', passport.authenticate("jwt", { session: false }), async (req, res) => {
+    try {
+      const image = await Model.findById(req.params.id);
+  
+      
+      // Check user
+      if (image.user.toString() !== req.user.id) {
+        return res.status(401).json({ msg: 'User not authorized' });
+      }
+  
+      await image.remove();
+  
+      res.json({ msg: 'image removed' });
+    } catch (err) {
+      console.error(err.message);
+  
+      res.status(500).send('Server Error');
+    }
+  });
+
+  /**********video******************** */
+  // Require the Cloudinary library
+
+  router.post("/video",passport.authenticate("jwt", { session: false }), videoUpload.single("video"), async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+
+      // Upload image to cloudinary
+      const result = await cloudinary.uploader.upload_large(req.file.path, {
+        chunk_size: 7000000
+      });
+      console.log(result)
+      
+  
+      // Create new user
+      let fileUpload = new Model({
+        avatar: result.secure_url,
+        video :result.secure_url,
+        cloudinary_id: result.public_id,
+        user: req.user.id,
+
+      });
+      // Save fileUpload
+      await fileUpload.save();
+      res.json({fileUpload, msg:"uplaod with success"});
+    } catch (err) {
+      console.log(err);
+    }
+  });
+
+  
+ 
+
+
+
 
 
 module.exports = router;

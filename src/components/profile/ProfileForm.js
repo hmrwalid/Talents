@@ -70,20 +70,21 @@ const ProfileForm = () => {
 
 
   return (
-    <div className='container' style={{marginTop: "11rem"}}>
-      <h1 className='large text-primary'>
+    <div className='containerForm' style={{marginTop: "9rem"}}>
+      <h1 className='large' style={{color:"#b88b0f"}}>
         {creatingProfile ? 'Create Your Profile' : 'Edit Your Profile'}
       </h1>
 
-      <p className='lead'>
-        <i className='fas fa-user' />
+      <p className='lead' style={{color:"#b88b0f"}}>
+        <i className='fas fa-user'  style={{color:"#b88b0f"}}/>
         {creatingProfile
           ? ` Let's get some information to make your`
           : ' Add some changes to your profile'}
       </p>
-   <form onSubmit={onSubmit}>
+   <form className='frp' onSubmit={onSubmit} >
    <div className='form-group'>
-          <select name='Favorite_position' value={Favorite_position} onChange={onChange}>
+     <label className='label'>kkk</label>
+          <select className='inpt' name='Favorite_position' value={Favorite_position} onChange={onChange}>
             <option> Select your Favorite position</option>
             <option value='Goalkeeper (GK)'>Goalkeeper (GK) </option>
             <option value='Centre-Back (CB)'>Centre-Back (CB)</option>
@@ -105,8 +106,9 @@ const ProfileForm = () => {
             Give us an idea of your Favorite position
           </small>
         </div>
-        <div className='form-group'>
-        <input
+        <div className='form-group' >
+          <label className='label'>kkk</label>
+        <input className='inpt'
                 name="name"
                 placeholder="Name"
                 type="text"
@@ -116,7 +118,8 @@ const ProfileForm = () => {
               />
                       </div>
                       <div className='form-group'>
-               <input
+                        <label className='label'>kkk</label>
+               <input className='inpt'
                 name="email"
                 placeholder="Email"
                 type="text"
@@ -125,7 +128,8 @@ const ProfileForm = () => {
                 onChange={onChange}/>
                 </div>
               <div className='form-group'>
-                <input
+                <label className='label'>kkk</label>
+                <input className='inpt'
                 name="age"
                 placeholder="Age"
                 type="text"
@@ -133,9 +137,11 @@ const ProfileForm = () => {
                 value={age} 
                 onChange={onChange}
              />
+             </div>
               <div className='form-group'>
+                <label className='label'>kkkgggg</label>
 
-              <input
+              <input className='inpt'
                 name="height"
                 placeholder="Heigth"
                 type="text"
@@ -145,7 +151,8 @@ const ProfileForm = () => {
                   />
                   </div>
                   <div className='form-group'>
-                <input
+                    <label className='label'>kkk</label>
+                <input className='inpt'
                 name="weight"
                 placeholder="Weigth"
                 type="text"
@@ -155,8 +162,8 @@ const ProfileForm = () => {
                   />
                   </div>
                   <div className='form-group'>
-                    <label> select your strongerFoot</label>
-                  <select name='stronger_Foot' value={stronger_Foot} onChange={onChange}>
+                    <label className='label'> select your strongerFoot</label>
+                  <select className='inpt' name='stronger_Foot' value={stronger_Foot} onChange={onChange}>
                   <option value='Left'>Left</option>
             <option value='Right'>Right</option>
             <option value='both'>both</option>
@@ -164,7 +171,8 @@ const ProfileForm = () => {
             </select>
               </div>
               <div className='form-group'>
-              <input
+                <label className='label'>kkk</label>
+              <input className='inpt'
                 name="address"
                 placeholder="Address"
                 type="text"
@@ -174,7 +182,8 @@ const ProfileForm = () => {
               />
               </div>
               <div className='form-group'>
-              <input
+                <label className='label'>kkk</label>
+              <input className='inpt'
                 name="city"
                 placeholder="city"
                 type="text"
@@ -185,7 +194,8 @@ const ProfileForm = () => {
               </div>
                 
                  <div className='form-group'>
-             <input
+                   <label className='label'>kkk</label>
+             <input className='inpt'
                 name="tel"
                 placeholder="tel"
                 type="text"
@@ -196,18 +206,19 @@ const ProfileForm = () => {
               />
               </div>
                <div className='form-group'>
+               <small className='form-text'>Tell us a little about yourself</small>
           <textarea
+          className='inpt'
             placeholder='A short bio of yourself'
             name='bio'
             value={bio}
             onChange={onChange}
           />
 
-          <small className='form-text'>Tell us a little about yourself</small>
         </div>
             
-              </div>
-              <input type='submit' className='btn btn-primary my-1' onSubmit={onSubmit} />
+          
+              <input  type='submit' className='btn btn-primary my-1' onSubmit={onSubmit} />
 
 <Link className='btn btn-light my-1' to='/dashbord'>
   Go Back

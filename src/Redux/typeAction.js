@@ -23,3 +23,13 @@ export const ADD_POST = 'ADD_POST';
 
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+
+export const  GET_IMAGES = " GET_IMAGES"
+export const  GET_IMAGE = " GET_IMAGE"
+export const ADD_IMAGE = "ADD_IMAGE"
+export const DELETE_IMAGE = "DELETE_IMAGE"
+
+export const  GET_VIDEOS = " GET_VIDEOS"
+export const  GET_VIDEO = " GET_VIDEO"
+export const ADD_VIDEO = "ADD_VIDEO"
+export const DELETE_VIDEO = "DELETE_VIDEO"

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  Link, useParams } from 'react-router-dom'
-import { Button, Card, Image } from 'semantic-ui-react'
 import { deleteAccount, getCurrentProfile } from '../../Redux/action/ActionProfil'
 import Profiles from '../Admin/Profiles'
 
@@ -28,7 +27,7 @@ const Dashboard = () => {
       <h1 className='large'  style={{color:'#fbba07'}}>Dashboard</h1>
 
       <p className='lead'  style={{color:'white'}}>
-        <i className='fas fa-user' style={{color:'white'}} /> Welcome { user.name}
+        <i className='fas fa-user' style={{color:'white'}} />  { user.name}
       </p>
         
         {role === "ADMIN"? (<>
