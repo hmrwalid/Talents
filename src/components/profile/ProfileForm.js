@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useMatch, useNavigate } from 'react-router-dom'
 import { createProfile, getCurrentProfile } from '../../Redux/action/ActionProfil'
+import UploaFile from './UploaFile'
 
 const ProfileForm = () => {
     const profile = useSelector((state)=>state.profile.profile)
@@ -81,8 +82,10 @@ const ProfileForm = () => {
           ? ` Let's get some information to make your`
           : ' Add some changes to your profile'}
       </p>
+      <UploaFile/>
    <form className='frp' onSubmit={onSubmit} >
    <div className='form-group'>
+     
      <label className='label'>kkk</label>
           <select className='inpt' name='Favorite_position' value={Favorite_position} onChange={onChange}>
             <option> Select your Favorite position</option>

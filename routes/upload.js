@@ -2,30 +2,27 @@ var express = require("express");
 var router = express.Router();
 const {videoUpload,
   imageUpload} = require('../cloudinary/multer')
-const {cloudinary} = require('../cloudinary/cloudinary')
-const Model = require('../models/ImagesVideo')
+const {cloudinary }= require('../cloudinary/cloudinary')
+const Model = require('../models/fileUplaodModel')
 const User = require("../models/User")
 const passport = require('passport')
 
 // upload images
-router.post("/",passport.authenticate("jwt", { session: false }), imageUpload.single("image"), async (req, res) => {
+router.post("/",imageUpload.single("file"), async (req, res) => {
     try {
-        const user = await User.findById(req.user.id).select('-password');
+        // const user = await User.findById(req.user.id).select('-password');
 
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
-  
+     const result = await cloudinary.uploader.upload(req.file.path);
       // Create new user
       let fileUpload = new Model({
-        avatar: result.secure_url,
-        video:result.secure_url,
+        avatar :result.secure_url,
         cloudinary_id: result.public_id,
-        user: req.user.id,
 
       });
       // Save fileUpload
       await fileUpload.save();
-      res.json(fileUpload);
+      res.status(200).json(fileUpload);
     } catch (err) {
       console.log(err);
     }
@@ -83,15 +80,12 @@ router.post("/",passport.authenticate("jwt", { session: false }), imageUpload.si
   /**********video******************** */
   // Require the Cloudinary library
 
-  router.post("/video",passport.authenticate("jwt", { session: false }), videoUpload.single("video"), async (req, res) => {
+  router.post("/video",passport.authenticate("jwt", { session: false }), videoUpload.single("file"), async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
 
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload_large(req.file.path, {
-        chunk_size: 7000000
-      });
-      console.log(result)
+      const result = await cloudinary.uploader.upload_large(req.file.path);
       
   
       // Create new user

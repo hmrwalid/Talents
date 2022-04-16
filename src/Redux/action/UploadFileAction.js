@@ -1,3 +1,4 @@
+import axios from "axios";
 import {GET_IMAGES, GET_IMAGE, ADD_IMAGE, DELETE_IMAGE, GET_VIDEOS, GET_VIDEO, ADD_VIDEO, DELETE_VIDEO } from "../typeAction"
 import { setAlert } from './AlertAction';
 
@@ -11,7 +12,6 @@ export const uploadImage = (formData) => async (dispatch) => {
         type: ADD_IMAGE,
         payload: res.data,
       });
-  
       dispatch(setAlert('image uploaded', 'success'));
     } catch (err) {
       dispatch(setAlert('image uploaded', 'Failed'));

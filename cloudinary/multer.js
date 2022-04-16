@@ -14,7 +14,7 @@ const imageUpload = multer({
   },
 });
 const videoStorage = multer.diskStorage({
-  destination: './assest', // Destination to store video 
+  destination: './public/videos', // Destination to store video 
   filename: (req, file, cb) => {
       cb(null, file.fieldname + '_' + Date.now() 
        + path.extname(file.originalname))

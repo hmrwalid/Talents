@@ -22,39 +22,7 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static('public'));
 
-// app.get('/api/images', async (req, res) => {    
-//   const { resources } = await cloudinary.search
-//       .expression('folder:talent')
-//       .sort_by('public_id', 'desc')
-//       .max_results(30)
-//       .execute();
-     
-//     const publicIds = resources.map((file) => file.public_id);
-//     res.send( publicIds);
-     
-     
-// });
 
-// app.post('/api/upload', async (req, res) => {
-//   try {
-//       const fileStr = req.body.data;
-//       const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-//           upload_preset: 'taleent',
-//       });
-//       console.log(uploadResponse.secure_url);
-//       res.json(uploadResponse);
-//   } catch (err) {
-//       console.error(err);
-//       res.status(500).json({ err: 'Something went wrong' });
-//   }
-// });
-
-// app.post('/test',(req,res)=>{
-//     cloudinary.uploader.unsigned_upload("https://cloudinary.com/console/c-a27e541bcce728987a0b72ff90911b/media_library/folders/home", {upload_preset: "preset"}, (error, result)=>{
-//         console.log(result, error);
-//       });
-// })
-//unsigned_upload
 
 
 app.use('/api', indexRouter); //http://localhost:5000/api

@@ -5,6 +5,7 @@ const {
   Test,
   Admin,
 } = require("../controllers/user.controller");
+
 const passport = require('passport')
 var router = express.Router();
 const { ROLES, inRole } = require("../security/RoleMiddelware");
@@ -43,4 +44,3 @@ DeleteProfile);
 
 
 module.exports = router;
-

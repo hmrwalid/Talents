@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deleteAccount, getCurrentProfile } from '../../Redux/action/ActionProfil'
-import Upload from './Upload'
-import Photo from './Photo'
+import UploaFile from './UploaFile'
+
 
 const Profile = () => {
   
@@ -61,7 +61,7 @@ const Profile = () => {
              <span>
               {profile.Favorite_position}
             </span></div>
-
+              <Link to='/edit-profile'> <button className='btn'>Edit</button></Link>
          </div>
        </div>
        

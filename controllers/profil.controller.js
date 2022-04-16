@@ -73,6 +73,7 @@ const FindAllProfiles = async (req ,res)=>{
     try {
         const result =await ProfileModel.find().populate('user', ["name", "email", "role"])
         res.json(result)
+        console.log(res.data)
     } catch (error) {
         res.status(400).send({message:"can not get all users"})
     }
