@@ -26,6 +26,7 @@ import Post from './components/Post/Post';
 import NotFound from './components/layout/NotFound';
 import Profile from './components/profile/Profile';
 import Footer from './components/layout/Footer';
+import Skills from './components/pages/Skills';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
@@ -33,7 +34,7 @@ if(window.localStorage.jwt){
   setAuth(window.localStorage.jwt)
   const currentDate = Date.now / 1000
 
-  if(decode.exp >  currentDate){
+  if(decode.exp  >  currentDate){
    store.dispatch(Logout()) 
   }
 }
@@ -80,6 +81,8 @@ function App() {
         } />
      <Route path="/" element={<Home />}/>
      <Route path="/about" element={<About/> } />
+     <Route path="/skill" element={<Skills/> } />
+
      <Route path="/login" element={ <ForceRedirect user={user}><Login /></ForceRedirect>
      }/>
      <Route path="/register" element={<ForceRedirect user={user}><Register/></ForceRedirect>}/>

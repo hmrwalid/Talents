@@ -72,10 +72,13 @@ const ProfileForm = () => {
 
   return (
     <div className='containerForm' style={{marginTop: "9rem"}}>
-      <h1 className='large' style={{color:"#b88b0f"}}>
+     
+      <div className='prff'>
+      <h1 className='large h1' style={{color:"#b88b0f"}}>
         {creatingProfile ? 'Create Your Profile' : 'Edit Your Profile'}
       </h1>
-
+      </div>
+      <div className='frr'>
       <p className='lead' style={{color:"#b88b0f"}}>
         <i className='fas fa-user'  style={{color:"#b88b0f"}}/>
         {creatingProfile
@@ -85,8 +88,9 @@ const ProfileForm = () => {
       <UploaFile/>
    <form className='frp' onSubmit={onSubmit} >
    <div className='form-group'>
-     
-     <label className='label'>kkk</label>
+   <small className='form-text'>
+            Give us an idea of your Favorite position
+          </small>
           <select className='inpt' name='Favorite_position' value={Favorite_position} onChange={onChange}>
             <option> Select your Favorite position</option>
             <option value='Goalkeeper (GK)'>Goalkeeper (GK) </option>
@@ -105,12 +109,10 @@ const ProfileForm = () => {
             <option value='Centre Forward (CF)'> Centre Forward (CF)</option>
 
           </select>
-          <small className='form-text'>
-            Give us an idea of your Favorite position
-          </small>
+        
         </div>
         <div className='form-group' >
-          <label className='label'>kkk</label>
+          <label className='label'>Name</label>
         <input className='inpt'
                 name="name"
                 placeholder="Name"
@@ -121,7 +123,7 @@ const ProfileForm = () => {
               />
                       </div>
                       <div className='form-group'>
-                        <label className='label'>kkk</label>
+                        <label className='label'>Email</label>
                <input className='inpt'
                 name="email"
                 placeholder="Email"
@@ -131,7 +133,7 @@ const ProfileForm = () => {
                 onChange={onChange}/>
                 </div>
               <div className='form-group'>
-                <label className='label'>kkk</label>
+                <label className='label'>Age</label>
                 <input className='inpt'
                 name="age"
                 placeholder="Age"
@@ -142,7 +144,7 @@ const ProfileForm = () => {
              />
              </div>
               <div className='form-group'>
-                <label className='label'>kkkgggg</label>
+                <label className='label'>Height</label>
 
               <input className='inpt'
                 name="height"
@@ -154,7 +156,7 @@ const ProfileForm = () => {
                   />
                   </div>
                   <div className='form-group'>
-                    <label className='label'>kkk</label>
+                    <label className='label'>weight</label>
                 <input className='inpt'
                 name="weight"
                 placeholder="Weigth"
@@ -174,7 +176,7 @@ const ProfileForm = () => {
             </select>
               </div>
               <div className='form-group'>
-                <label className='label'>kkk</label>
+                <label className='label'>Address</label>
               <input className='inpt'
                 name="address"
                 placeholder="Address"
@@ -185,7 +187,7 @@ const ProfileForm = () => {
               />
               </div>
               <div className='form-group'>
-                <label className='label'>kkk</label>
+                <label className='label'>city</label>
               <input className='inpt'
                 name="city"
                 placeholder="city"
@@ -197,7 +199,7 @@ const ProfileForm = () => {
               </div>
                 
                  <div className='form-group'>
-                   <label className='label'>kkk</label>
+                   <label className='label'>Tel</label>
              <input className='inpt'
                 name="tel"
                 placeholder="tel"
@@ -227,6 +229,7 @@ const ProfileForm = () => {
   Go Back
 </Link>
    </form>
+   </div>
     </div>
   )
 }

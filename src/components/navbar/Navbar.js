@@ -18,7 +18,8 @@ const Navbar = () => {
         <nav className="navbar">
           <Link to='/'> <span>Home</span> </Link>
           <Link to='about'> <span>About us</span></Link>
-                         <span>|</span>
+          <Link to='skill'> <span>Skills  tutorial</span></Link>
+
               
               {!user.isConnected? (
                 <>

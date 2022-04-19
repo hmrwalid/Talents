@@ -8,14 +8,15 @@ const User = require("../models/User")
 const passport = require('passport')
 
 // upload images
-router.post("/",imageUpload.single("file"), async (req, res) => {
+router.post("/", passport.authenticate("jwt", { session: false }), imageUpload.single("file"), async (req, res) => {
     try {
-        // const user = await User.findById(req.user.id).select('-password');
+        const user = await User.findById(req.user.id).select('-password');
 
       // Upload image to cloudinary
      const result = await cloudinary.uploader.upload(req.file.path);
       // Create new user
       let fileUpload = new Model({
+        user: req.user.id,
         avatar :result.secure_url,
         cloudinary_id: result.public_id,
 

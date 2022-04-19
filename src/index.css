@@ -20,13 +20,14 @@ body{
 }
 
 .logContainer{
-    margin-top: 6.5rem;
+   
     width: 100%;
     display: flex;
     max-width: 850px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 .login{
     width: 400px;
@@ -119,5 +120,69 @@ Link{
     background: rgba(212, 48, 48, 0.76);
     transition: 0.4s;
   }
-
+  /**********skills**************/
+  .skills{
+width: 100%;  
+height: 100%;
+}
+.video{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 20px;
+    padding:10px;
+}
+.h4{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 10%;
+}
   
+.test{
+
+height: 700px;
+max-width: 100vw;
+width: 100vw;
+ background: url('https://images.unsplash.com/photo-1570498839593-e565b39455fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60')  no-repeat  center/cover;
+
+}
+.hm{
+
+    height: 700px;
+    max-width: 100vw;
+    width: 100vw;
+    background: url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat  center/cover;
+    
+    }
+.h1{
+    padding-top: 15%;
+    padding-right: 70%;
+    font-size: 3.4375rem;
+    line-height: 55px;
+   
+    font-family: 'Philosopher', sans-serif;
+    color: #fbba07;
+}
+.h1:hover{
+    color: #fff;
+    font-size: 3rem;
+
+
+}
+.ab{
+ 
+height: 700px;
+max-width: 100vw;
+width: 100vw;
+background: url("https://previews.123rf.com/images/matimix/matimix1611/matimix161100045/68119174-football-soccer-match-for-children-boys-playing-football-game-on-a-school-tournament-dynamic-action-.jpg") no-repeat  center/cover ;   
+}
+.prff{
+
+    height: 700px;
+    max-width: 100vw;
+    width: 100vw;
+     background: url('https://media.istockphoto.com/photos/sport-backgrounds-soccer-stadium-soccer-ball-on-stadium-football-picture-id1168591951?k=20&m=1168591951&s=612x612&w=0&h=L5n4I52tdaIKP3JZv676210LAJavmEkFZU-klsbl36o=')  no-repeat  center/cover;
+    
+    }
+    .frr{
+        border: solid;
+        background: url('https://cdn.artphotolimited.com/images/59888232b0ba742a2efde168/700x700/jairzinho-psg-marseille-1975.jpg')  no-repeat  center/cover;
+    }

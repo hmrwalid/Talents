@@ -1,15 +1,18 @@
 import axios from "axios";
+import { useState } from "react";
 import {GET_IMAGES, GET_IMAGE, ADD_IMAGE, DELETE_IMAGE, GET_VIDEOS, GET_VIDEO, ADD_VIDEO, DELETE_VIDEO } from "../typeAction"
 import { setAlert } from './AlertAction';
 
 
 // upload image 
 export const uploadImage = (formData) => async (dispatch) => {
-    try {
-      const res = await axios.post('/api/upload', formData);
+
   
+    try {
+      const res = await axios.post("http://localhost:5000/api/upload", formData);
+   console.log(res)
       dispatch({
-        type: ADD_IMAGE,
+        type: GET_IMAGE,
         payload: res.data,
       });
       dispatch(setAlert('image uploaded', 'success'));

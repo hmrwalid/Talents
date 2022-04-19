@@ -710,8 +710,8 @@ outline: none;
 }
 /************profileForm*********/
 .containerForm{
-  background: url("https://as1.ftcdn.net/v2/jpg/01/91/49/26/1000_F_191492670_3c0KFlQkkJAtsyamdOGWssR1AWvgVagP.jpg")  no-repeat  center/cover;
-  margin-bottom: 0%;
+ background: #151617;
+  
 }
 .form-group{
   display: flex;

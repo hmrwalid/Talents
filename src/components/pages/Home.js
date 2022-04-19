@@ -1,15 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ProfilCard from '../ProfilCard/ProfilCard'
+import Email from './Email'
 
 const Home = () => {
   return (
    <div>
+         <div className='hm'>
+      <h1 className='h1'>welcom to Golden talent</h1>
+
+      </div>
          <main>
     <section className="home">
         <div className="max-width">
             <div className="home-content">
-                <h6>welcom to Gold talent</h6>
 
                 <h5> Where your dreams 
                     <br/>become a possibility.</h5>
@@ -20,7 +24,7 @@ const Home = () => {
 
          </section>
          <ProfilCard/>
-
+          <Email/>
             </main>
       </div>
   
