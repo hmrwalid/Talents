@@ -95,6 +95,20 @@ const FindSingleProfile = async (req ,res)=>{
         res.status(500).send('Server Error');
       }
     }
+    const getProfilByID =async (req, res) => {
+      try {
+        const profile = await ProfileModel.findById(req.params.id);
+    
+        if (!profile) return res.status(404).json({ msg: 'profile not found' });
+    
+        res.json(profile);
+      } catch (err) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId')
+          return res.status(404).json({ msg: 'profile not found' });
+        res.status(500).send('Server Error');
+      }
+    }
 
 const DeleteProfile = async (req ,res)=>{
     try {
@@ -121,6 +135,7 @@ module.exports = {
     FindAllProfiles,
     FindSingleProfile,
     DeleteProfile,
+    getProfilByID
     
 }
 

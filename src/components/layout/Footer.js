@@ -1,32 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <div>
          <div className="footer-dark">
-        <footer style={{color:'white'}}>
+        <footer >
           <div className="container">
-            <div className="row">
-              <div className="col-sm-6 col-md-3 item">
-                <h3>Services</h3>
-                
-              </div>
-              <div className="col-sm-6 col-md-3 item">
+            <div className="contact">
                 <h3>Contact Us</h3>
+                <span>+216 27727737</span>
                 <ul>
-                  <li>Facebook</li>
-                  <li>Instagram</li>
-                  <li>Email</li>
+                <a href="https://www.facebook.com/walid.hamrouni.1232"><li>Facebook 
+                  <i className="fab fa-facebook-f" /> </li></a>  
+                  <a href= 'https://www.instagram.com/hmr_walid/'> <li>Instagram <i className="fab fa-instagram" /></li></a>
+                
+                
                 </ul>
               </div>
-              <div className="col-md-6 item text">
-                <h3>Golden Talent</h3>
-                <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-              </div>
-              <div className="col item social"><i className="icon ion-social-facebook" /><i className="icon ion-social-twitter" /><i className="icon ion-social-snapchat" /><i className="icon ion-social-instagram" /></div>
-            </div>
-            <p className="copyright" style={{color:'white'}}>Golden Talent © 2022</p>
+            <p className="copyright" style={{color:'#b88b0f'}}>Golden Talent © 2022</p>
           </div>
         </footer>
       </div>

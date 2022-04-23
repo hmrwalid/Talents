@@ -25,6 +25,11 @@ const initialState = {
           image: payload,
           loading: false,
         };
+        case ADD_IMAGE:
+          return {
+           images :[payload, ...state.images]
+          };
+        
 ;
       case DELETE_IMAGE:
         return {

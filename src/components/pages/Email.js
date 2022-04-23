@@ -15,12 +15,13 @@ const Email = () => {
 		}
 	}
   return (
-    <div>
+    <div className='email'>
+		<p className='pEmail'>Sign up to hear from us about our special events and programs.</p>
         {!sent ? (
-				<form onSubmit={handleSend}>
-					<input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+				<form onSubmit={handleSend} className = "form">
+					<textarea type="text" value={text} onChange={(e) => setText(e.target.value)} />
 
-					<button type="submit">Send Email</button>
+					<button className='btEmail' type="submit">Send Email</button>
 				</form>
 			) : (
 				alert("email sent")

@@ -20,6 +20,27 @@ export const getCurrentProfile = () => async (dispatch) => {
       });
     }
   };
+  //get profile by id
+  export const getProfilById = (id) => async (dispatch) => {
+    try {
+      const res = await axios.get(`/api/profile/${id}`);
+      console.log(res)
+  
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: {
+          msg: err.response.statusText,
+          status: err.response.status,
+        },
+      });
+    }
+  };
+
 
   // Get All Profiles
 export const getProfiles = () => async (dispatch) => {

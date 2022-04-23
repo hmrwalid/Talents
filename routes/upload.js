@@ -14,6 +14,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), imageUpload.s
 
       // Upload image to cloudinary
      const result = await cloudinary.uploader.upload(req.file.path);
+     console.log(req.file.path)
       // Create new user
       let fileUpload = new Model({
         user: req.user.id,

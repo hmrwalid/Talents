@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ImageCard from '../ProfilCard/ImageCard'
 import ProfilCard from '../ProfilCard/ProfilCard'
 import Email from './Email'
 
 const Home = () => {
   return (
-   <div>
+   <div style={{marginTop : "8rem"}}>
          <div className='hm'>
       <h1 className='h1'>welcom to Golden talent</h1>
 
@@ -24,8 +25,9 @@ const Home = () => {
 
          </section>
          <ProfilCard/>
-          <Email/>
+
             </main>
+            <Email/>
       </div>
   
   )

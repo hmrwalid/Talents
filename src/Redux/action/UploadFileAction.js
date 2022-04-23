@@ -12,12 +12,25 @@ export const uploadImage = (formData) => async (dispatch) => {
       const res = await axios.post("http://localhost:5000/api/upload", formData);
    console.log(res)
       dispatch({
-        type: GET_IMAGE,
+        type: ADD_IMAGE,
         payload: res.data,
       });
       dispatch(setAlert('image uploaded', 'success'));
     } catch (err) {
       dispatch(setAlert('image uploaded', 'Failed'));
+    }
+  };
+  // Get Images
+  export const getImages = () => async (dispatch) => {
+    try {
+      const res = await axios.get('/api/upload/');
+  
+      dispatch({
+        type: GET_IMAGES,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err)
     }
   };
 

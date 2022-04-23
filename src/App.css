@@ -530,14 +530,7 @@ outline: none;
   background: #4e433f;
 }
 
-.btn.btn-success {
-  background-color: #28a745;
-  color: #fff;
-}
 
-.btn.btn-success:hover {
-  background: #2dbc4e;
-}
 
 .btn.btn-danger {
   background-color: #dc3545;

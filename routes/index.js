@@ -9,7 +9,7 @@ const {
 const passport = require('passport')
 var router = express.Router();
 const { ROLES, inRole } = require("../security/RoleMiddelware");
-const {  FindAllProfiles, FindSingleProfile, DeleteProfile,  CreateProfile,  } = require("../controllers/profil.controller");
+const {  FindAllProfiles, FindSingleProfile, DeleteProfile,  CreateProfile, getProfilByID  } = require("../controllers/profil.controller");
 
 /* users routes. */
 router.post("/register", Register);
@@ -31,15 +31,18 @@ router.get("/",
 passport.authenticate("jwt", { session: false }),
 
 FindAllProfiles);
-/* get one profile */
+/* get my profile */
 router.get("/profile/me", 
 passport.authenticate("jwt", { session: false }),
 FindSingleProfile);
 /* delete profiles */
 router.delete("/profile/me", 
 passport.authenticate("jwt", { session: false }),
+inRole(ROLES.ADMIN),
+DeleteProfile );
+// get profile by id
+router.get('/profile/:id', passport.authenticate("jwt", { session: false }), getProfilByID);
 
-DeleteProfile);
 
 
 

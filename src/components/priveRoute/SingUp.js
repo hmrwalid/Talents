@@ -34,7 +34,7 @@ const SingUp = () => {
                 <Inputs name="confirm" label="Confirm password" type="password" icon="fa-solid fa-key" onChangeHandler={onChangeHandler} errors={errors.confirm}/>
               
                 <button>Sig in</button>
-               <Link to="/singup"> <p>
+               <Link to="/login"> <p>
                    i  have account
                 </p>   </Link>         
                  

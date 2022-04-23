@@ -93,6 +93,11 @@ function App() {
           <Route path='posts/:id' element={ <PrivateRouter user={user}>
             <Post />
           </PrivateRouter> } />
+          <Route path="/profile/:id" element={
+          <PrivateRouter user={user}>
+            <Profile />
+          </PrivateRouter>
+        } />
      <Route path="*" element={<NotFound/>}/>
      <Route path="/noaccess" element={<NoAcces/>}/>
 

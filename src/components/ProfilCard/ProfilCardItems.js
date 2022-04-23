@@ -1,27 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux';
+import ImageItem from './ImageItem';
 
-const ProfilCardItems = ({profile}) => {
+const ProfilCardItems = ({image}) => {
+  
   return (
     <div style={{margin:"5px"}}>
-         <div className="flip-container">
+       <div className="flip-container">
         <div className="flip-inner-container">
           <div className="flip-front">
-            <img src="/gold.png" alt="peof" />
+             <img src={image.avatar}/>
           </div>
           <div className="flip-back">
             <div className="profile-image">
-              <img src="/foot.jpg" />
-              <h2>{profile.name}</h2>
-              <p>{profile.Favorite_position}</p>
-              <ul>
-                <i className="fab fa-facebook-f" />
-                <i className="fab fa-instagram" />
-                <i className="fab fa-youtube" />
-              </ul>
+            <img src={image.avatar}/>
+
+            
+          <button  >
+            go to profile
+          </button>
             </div>
           </div>
         </div>
       </div>
+        
     </div>
   )
 }

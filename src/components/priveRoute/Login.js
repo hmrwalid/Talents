@@ -31,7 +31,6 @@ const Login = () => {
 
        <h1>Login</h1>
                 <hr/>
-                <p>Explore the World!</p>
 <Inputs
                 name="email"
                 label="Email"

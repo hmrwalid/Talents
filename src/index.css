@@ -145,12 +145,11 @@ width: 100vw;
 
 }
 .hm{
-
+border: solid;
     height: 700px;
     max-width: 100vw;
     width: 100vw;
     background: url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat  center/cover;
-    
     }
 .h1{
     padding-top: 15%;
@@ -186,3 +185,49 @@ background: url("https://previews.123rf.com/images/matimix/matimix1611/matimix16
         border: solid;
         background: url('https://cdn.artphotolimited.com/images/59888232b0ba742a2efde168/700x700/jairzinho-psg-marseille-1975.jpg')  no-repeat  center/cover;
     }
+    /**********Email***********/
+    .email{
+        background: rgba(155, 128, 96, 0.852);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .form{
+       display: flex;
+/* padding: 15px;  */
+margin-top: 0;
+}
+.btEmail{
+    margin-left : 5px;
+    border-radius: 8px;
+}
+.pEmail{
+    margin-top: 4rem;
+}
+
+/***********footer****/
+.contact{
+    display: flex;
+    justify-content: space-evenly;
+}
+.contact h3{
+ color: #b88b0f;
+ font-size: medium;
+ font-weight: 200;
+}
+.contact ul {
+    display:  flex;
+    justify-content: space-evenly;
+}
+.contact ul li, .contact span, .contact ul li i {
+    color: #b88b0f;
+    margin-left: 20px;
+}
+
+.contact ul li, .contact ul li i{
+    font-size: large;
+    color: #b88b0f;
+}
+.contact ul li :hover{
+    font-size: 3rem;
+}
