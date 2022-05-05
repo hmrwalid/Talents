@@ -20,6 +20,20 @@ export const uploadImage = (formData) => async (dispatch) => {
       dispatch(setAlert('image uploaded', 'Failed'));
     }
   };
+  // Get my Image
+  export const getMyImage = () => async (dispatch) => {
+    try {
+      const res = await axios.get('/api/upload/image/me');
+  
+      dispatch({
+        type: GET_IMAGE,
+        payload: res.data,
+      });
+    } catch (err) {
+
+      console.log(err.toString())
+    }
+  };
   // Get Images
   export const getImages = () => async (dispatch) => {
     try {
@@ -37,13 +51,15 @@ export const uploadImage = (formData) => async (dispatch) => {
   // Get image 
   export const getImage = (id) => async (dispatch) => {
     try {
-      const res = await axios.get(`/api/uplaod/${id}`);  
+      const res = await axios.get(`/api/upload/${id}`);  
       dispatch({
         type: GET_IMAGE,
-        payload: res.data,
+        payload: res.data
       });
+      console.log(res.data)
+
     } catch (err) {
-      dispatch(setAlert("no image found"));
+     console.log(err.toString())
     }
   };
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ImageCard from '../ProfilCard/ImageCard'
 import ProfilCard from '../ProfilCard/ProfilCard'
 import Email from './Email'
 

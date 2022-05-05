@@ -6,7 +6,6 @@ const UploaFile = () => {
   const [file, setFile] = useState({
     avatar: ""
   });
- const image = useSelector((state)=>state.uploadFile.images[0])
   const uploadfunc = (e) =>{ 
     setFile(e.target.files[0]);
     }
@@ -32,9 +31,7 @@ const UploaFile = () => {
         onChange={uploadfunc}/>
               <input type='submit' value='Submit' className='btn btn-dark my-1' onClick={onSubmit} />
               </div>
-              {image ? (<>
-               <img src ={image.avatar}/>
-              </>):(<></>)}
+             
     </div>
   )
 }

@@ -37,6 +37,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), imageUpload.s
       const images = await Model.find().sort({ date: -1 });
   
       res.json(images);
+      console.log(res.data)
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');
@@ -57,17 +58,37 @@ router.post("/", passport.authenticate("jwt", { session: false }), imageUpload.s
       res.status(500).send('Server Error');
     }
   });
+  // get my Image
+  router.get("/image/me",passport.authenticate("jwt", { session: false }), async(req, res)=>{
+    try {
+      // const user = await User.findById(req.user.id).select('-password');
+
+      const image = await Model.findOne({
+        user: req.user.id,
+      }).populate('user', ["name", "email", "role"])
+  console.log(image)
+      if (!image) {
+        return res.status(400).json({ msg: 'There is no image for this user' });
+      }
+  
+      res.json(image);
+
+    } catch (error) {
+
+      console.log(error)
+    }
+  })
 
    // Delete a image
-   router.delete('/:id', passport.authenticate("jwt", { session: false }), async (req, res) => {
+   router.delete('/:id',  async (req, res) => {
     try {
       const image = await Model.findById(req.params.id);
   
       
-      // Check user
-      if (image.user.toString() !== req.user.id) {
-        return res.status(401).json({ msg: 'User not authorized' });
-      }
+      // // Check user
+      // if (image.user.toString() !== req.user.id) {
+      //   return res.status(401).json({ msg: 'User not authorized' });
+      // }
   
       await image.remove();
   

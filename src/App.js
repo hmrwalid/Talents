@@ -27,6 +27,7 @@ import NotFound from './components/layout/NotFound';
 import Profile from './components/profile/Profile';
 import Footer from './components/layout/Footer';
 import Skills from './components/pages/Skills';
+import ProfilesUsers from './components/ProfilCard/ProfilesUsers';
 
 if(window.localStorage.jwt){
   const decode = jwt_decode(window.localStorage.jwt)
@@ -79,9 +80,12 @@ function App() {
             <Admin />
           </AdminRouter>
         } />
+
      <Route path="/" element={<Home />}/>
+     <Route path="/user/:id" element={<ProfilesUsers />}/>
      <Route path="/about" element={<About/> } />
      <Route path="/skill" element={<Skills/> } />
+
 
      <Route path="/login" element={ <ForceRedirect user={user}><Login /></ForceRedirect>
      }/>
@@ -93,11 +97,7 @@ function App() {
           <Route path='posts/:id' element={ <PrivateRouter user={user}>
             <Post />
           </PrivateRouter> } />
-          <Route path="/profile/:id" element={
-          <PrivateRouter user={user}>
-            <Profile />
-          </PrivateRouter>
-        } />
+       
      <Route path="*" element={<NotFound/>}/>
      <Route path="/noaccess" element={<NoAcces/>}/>
 

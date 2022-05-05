@@ -1,6 +1,7 @@
 const ProfileModel = require('../models/Profil')
 const User = require('../models/User')
 const Post = require('../models/Posts')
+const File = require("../models/fileUplaodModel")
 const ValidateProfile = require("../validation/Profil")
 const CreateProfile = async (req ,res)=>{
    const {errors, isValid} = ValidateProfile(req.body)
@@ -117,7 +118,8 @@ const DeleteProfile = async (req ,res)=>{
   
       // Remove profile
       await ProfileModel.findOneAndRemove({ user: req.user.id });
-  
+   // Remove fileupload
+   await File.findOneAndRemove({ user: req.user.id });
       // Remove user
       await User.findOneAndRemove({ _id: req.user.id });
   
@@ -127,6 +129,27 @@ const DeleteProfile = async (req ,res)=>{
       res.status(500).send('Serrver Error');
     }
   };
+  const deletProfilebyId = async(req, res)=>{
+    try {
+      const profile = await ProfileModel.findById(req.params.id);
+  
+      
+  
+
+    await profile.remove();
+
+    res.json({ msg: 'profile removed' });
+    } catch (error) {
+      console.error(err.message);
+
+    res.status(500).send('Server Error');
+  }    
+    }
+    
+    
+
+  
+  
 
 
 
@@ -135,7 +158,8 @@ module.exports = {
     FindAllProfiles,
     FindSingleProfile,
     DeleteProfile,
-    getProfilByID
+    getProfilByID,
+    deletProfilebyId
     
 }
 
