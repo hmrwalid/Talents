@@ -1,253 +1,4 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
-
- 
-.flip-container {
-    display: flex;
-  width: 280px;
-  height: 380px;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  perspective: 1000px;
-  margin: 100px auto;
-}
-
-.flip-inner-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transform-style: preserve-3d;
-  transition: transform 0.8s;
-}
-
-.flip-container:hover .flip-inner-container {
-  transform: rotateY(180deg);
-  cursor: pointer;
-}
-
-.flip-front,
-.flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-}
-.flip-front {
-  background: white;
-  padding: 2px;
-}
-
-.flip-front img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-
-.flip-back {
-  width: 280px;
-  height: 380px;
-  background: white;
-  transform: rotateY(180deg);
-}
-
-.flip-back .profile-image img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 4px solid #c500d6;
-  margin-top: 20px;
-}
-
-.flip-back p {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.flip-back ul {
-  display: flex;
-  margin: 20px 20px;
-}
-
-.flip-back ul a {
-  display: block;
-  height: 40px;
-  width: 40px;
-  color: #fff;
-  text-align: center;
-  margin: 0 7px;
-  line-height: 38px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  background: #c500d6;
-  transform: all 0.6s;
-}
-.flip-back ul a:hover {
-  color: black;
-  border-color: #c500d6;
-  background: linear-gradient(375deg, transparent, transparent);
-}@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
-
-.flip-container {
-  width: 280px;
-  height: 380px;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  perspective: 1000px;
-  margin: 100px auto;
-}
-
-.flip-inner-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transform-style: preserve-3d;
-  transition: transform 0.8s;
-}
-
-.flip-container:hover .flip-inner-container {
-  transform: rotateY(180deg);
-  cursor: pointer;
-}
-
-.flip-front,
-.flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-}
-.flip-front {
-  background: white;
-  padding: 2px;
-}
-
-.flip-front img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-
-.flip-back {
-  width: 280px;
-  height: 380px;
-  background: white;
-  transform: rotateY(180deg);
-}
-
-.flip-back .profile-image img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 4px solid #fbba07;
-  margin-top: 20px;
-}
-
-.flip-back p {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.flip-back ul {
-  display: flex;
-  margin: 20px 20px;
-}
-
-.flip-back ul a {
-  display: block;
-  height: 40px;
-  width: 40px;
-  color: black;
-  text-align: center;
-  margin: 0 7px;
-  line-height: 38px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  background: #c500d6;
-  transform: all 0.6s;
-}
-.flip-back ul a:hover {
-  color: #c500d6;
-  border-color: #fbba07;
-  background: linear-gradient(375deg, transparent, transparent);
-}
-.main{
-    margin-top: 4rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    font-family: "Poppins", sans-serif;
-    background: #151617;
-
-  }
-
-  /* Dashbord CSS */
-  .dshBody{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-    background: #151617;
-    font-family: "Poppins", sans-serif;
-}
-
-.wrapper{
-
-margin-bottom: 50%; 
- background: #fff;
-    max-width: 600px;
-    width: 100%;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.h1-dsh{
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #fbba07;
-}
-
-.about-section{
-    display: flex;
-}
-
-.img_dsh{
-    width: 200px;
-    border: solid red;
-    /* margin: 10px; */
-    border-radius: 10px;
-    box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.4);
-    margin-bottom: 3rem;
-}
-
-.p_dsh{
-    margin: 10px;
-}
-.btn_dsh{
-    outline: none;
-    border: none;
-    cursor: pointer;
-    width: 100px;
-    padding: 8px 12px;
-    background: #6c7174;
-    margin: 25px 20px 0 0;
-    color: white;
-    border-radius: 6px;
-    width: 60%;
-}
-button:hover{
-    box-shadow: 0px 10px 15px rgba(231, 235, 186, 0.3);
-}
-
 /* input CSS*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap');
 
@@ -310,22 +61,23 @@ textarea{
   margin-bottom:12px;
   font-weight:bold;
   font-size:16px;
+  color: #e8e8f1;
 }
 
 .footer-dark ul {
   padding:0;
   list-style:none;
-  line-height:1.6;
+  /* line-height:1.6; */
   font-size:14px;
-  margin-bottom:0;
+  margin: bottom 12px;
 }
 
 .footer-dark ul a {
   color:white;
   text-decoration:none;
-  opacity:0.6;
+  opacity:0.9;
 }
-.item{
+.footer-dark ul li{
   color: white;
 }
 
@@ -384,10 +136,10 @@ textarea{
   opacity:0.9;
 }
 
-.footer-dark .copyright {
+.copyright {
   text-align:center;
   padding-top:24px;
-  opacity:0.3;
+  opacity:0.9;
   font-size:13px;
   margin-bottom:0;
 }

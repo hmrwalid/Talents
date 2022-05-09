@@ -1,18 +1,25 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getCurrentProfile, getProfilById } from '../../Redux/action/ActionProfil'
+import { getProfiles } from '../../Redux/action/ActionProfil'
 import { getImage } from '../../Redux/action/UploadFileAction'
 
 const ProfilCardItems = ({image}) => {
+  const dispatch = useDispatch()
+    
+      useEffect(() => {
+        dispatch( getProfiles())
+       }, [getProfiles])
 
 const profiles = useSelector((state)=>state.profile.profiles)
 const imageUser = image.user
-const profile =profiles.filter(profile=> profile.user._id=== imageUser)[0]
+var profile =profiles.filter(profile=> profile.user._id=== imageUser)[0]
+console.log("profiles:", profiles)
 
-      const dispatch = useDispatch()
+console.log("imageUser", imageUser)
+console.log('profile._id',profile)
   return (
-    <div style={{margin:"5px"}}>
+    <div style={{margin:"2px"}}>
        <div className="flip-container">
         <div className="flip-inner-container">
           <div className="flip-front">
@@ -21,11 +28,12 @@ const profile =profiles.filter(profile=> profile.user._id=== imageUser)[0]
           <div className="flip-back">
             <div className="profile-image">
            <img src={image.avatar}/>
-           <h3>{profile.name}</h3>
-           <p>{profile.Favorite_position}</p>
+           {/* <h3>{profile.name}</h3>
+           <p>{profile.Favorite_position}</p> */}
 
            <Link to={`/user/${image._id}` }>
-          <button onClick={()=> {dispatch(getImage(image._id))}}>
+          <button onClick={()=> {dispatch(getImage(image._id)); dispatch( getProfiles())
+}}>
             go to profile
           </button>
           </Link>

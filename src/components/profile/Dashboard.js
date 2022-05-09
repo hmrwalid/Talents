@@ -26,9 +26,7 @@ const Dashboard = () => {
      <section className='container'>
       <h1 className='large'  style={{color:'#fbba07'}}>Dashboard</h1>
 
-      <p className='lead'  style={{color:'white'}}>
-        <i className='fas fa-user' style={{color:'white'}} />  { user.name}
-      </p>
+    
         
         {role === "ADMIN"? (<>
           <Profiles/>

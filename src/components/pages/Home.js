@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { getProfiles } from '../../Redux/action/ActionProfil'
 import ProfilCard from '../ProfilCard/ProfilCard'
 import Email from './Email'
 
 const Home = () => {
+    const dispatch = useDispatch()
+
+    const profiles = useSelector((state)=>state.profile.profiles)
+    useEffect(() => {
+        dispatch( getProfiles())
+       }, [getProfiles])
   return (
    <div style={{marginTop : "8rem"}}>
          <div className='hm'>
