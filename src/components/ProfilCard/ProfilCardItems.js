@@ -20,7 +20,7 @@ console.log("imageUser", imageUser)
 console.log('profile._id',profile)
   return (
     <div style={{margin:"2px"}}>
-       <div className="flip-container">
+      {profile !== undefined ?(   <div className="flip-container">
         <div className="flip-inner-container">
           <div className="flip-front">
             <img src={image.avatar}/>
@@ -28,8 +28,8 @@ console.log('profile._id',profile)
           <div className="flip-back">
             <div className="profile-image">
            <img src={image.avatar}/>
-           {/* <h3>{profile.name}</h3>
-           <p>{profile.Favorite_position}</p> */}
+           <h3>{profile.name}</h3>
+           <p>{profile.Favorite_position}</p>
 
            <Link to={`/user/${image._id}` }>
           <button onClick={()=> {dispatch(getImage(image._id)); dispatch( getProfiles())
@@ -40,7 +40,8 @@ console.log('profile._id',profile)
             </div>
           </div>
         </div>
-      </div>
+      </div>):(<></>)}
+    
         
     </div>
   )

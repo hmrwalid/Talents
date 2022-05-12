@@ -456,7 +456,7 @@ outline: none;
 
 /**************************************************************/
 
-.btn {
+/* .btn {
   display: inline-block;
   background: #f4f4f4;
   color: #333;
@@ -468,9 +468,9 @@ outline: none;
   outline: none;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-}
+} */
 
-.btn.btn-primary {
+/* .btn.btn-primary {
   background-color: #b88017;
   color: #fff;
 }
@@ -559,7 +559,7 @@ outline: none;
 .badge.badge-danger {
   background-color: #dc3545;
   color: #fff;
-}
+} */
 
 .dark-overlay {
   height: 100%;
@@ -723,4 +723,21 @@ opacity: 0.6;
   background: black;
   border: solid black;
   
+}
+
+/* body{background: rgb(99, 39, 120)} */
+.form-control:focus{box-shadow: none;border-color: #BA68C8}
+.profile-button{background: rgb(99, 39, 120);box-shadow: none;border: none}
+.profile-button:hover{background: #682773}
+.profile-button:focus{background: #682773;box-shadow: none}
+.profile-button:active{background: #682773;box-shadow: none}
+.back:hover{color: #682773;cursor: pointer}
+.labels{font-size: 9px}
+.video{
+    margin: 15px;
+}
+.select{
+    background: darkgray;
+    width: 100%;
+    border: none;
 }

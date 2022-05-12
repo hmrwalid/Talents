@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import ReactPlayer from 'react-player'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useMatch, useNavigate } from 'react-router-dom'
 import { createProfile, getCurrentProfile } from '../../Redux/action/ActionProfil'
+import { getMyImage } from '../../Redux/action/UploadFileAction'
 import UploaFile from './UploaFile'
 
 const ProfileForm = () => {
     const profile = useSelector((state)=>state.profile.profile)
     const loading = useSelector((state)=>state.profile.loading)
+    const photo = useSelector((state)=>state.uploadFile.image)
+
     const dispatch =useDispatch()
     const initialState = {
         name: '',
@@ -30,6 +34,7 @@ const ProfileForm = () => {
         // if there is no profile, attempt to fetch one
         if (!profile){
           dispatch(getCurrentProfile())
+          dispatch(getMyImage())
         } 
     
         // if we finished loading and we do have a profile
@@ -68,30 +73,103 @@ const ProfileForm = () => {
        dispatch( createProfile(formData, navigate, profile ? true : false));
       };
 
+console.log("photo :" , photo)
+console.log("profile :" , profile)
 
 
   return (
-    <div className='containerForm' style={{marginTop: "9rem"}}>
-     
-      <div className='prff'>
-      <h1 className='large h1' style={{color:"#b88b0f"}}>
-        {creatingProfile ? 'Create Your Profile' : 'Edit Your Profile'}
-      </h1>
-      </div>
-      <div className='frr'>
-      <p className='lead' style={{color:"#b88b0f"}}>
-        <i className='fas fa-user'  style={{color:"#b88b0f"}}/>
-        {creatingProfile
-          ? ` Let's get some information to make your`
-          : ' Add some changes to your profile'}
-      </p>
-      <UploaFile/>
-   <form className='frp' onSubmit={onSubmit} >
-   <div className='form-group'>
-   <small className='form-text'>
+    <div  style={{marginTop: "9rem"}}>
+     <div className="container rounded bg-white mt-5 mb-5">
+        <div className="row">
+           <div className="col-md-3 border-right">
+            <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+              {profile  && photo ?(<>
+                <img className="rounded-circle mt-5" src={photo.avatar} width="200px" />
+              <span className="font-weight-bold">{profile.name}</span>
+              <span className="text-black-50">{profile.Favorite_position}</span>
+              <span> </span></>):
+              
+              (<> <UploaFile/></>)}
+              
+              </div>
+          </div> 
+          <div className="col-md-5 border-right" onSubmit={onSubmit}> 
+            <div className="p-3 py-5"> 
+            <div className="d-flex justify-content-between align-items-center mb-3"> 
+                <h4 className="text-right">Profile Settings</h4> 
+                </div> 
+              <div className="row mt-2"> 
+              <div className="col-md-6">
+                  <label className="labels">Name</label>
+                  <input type="text" className="form-control" placeholder="name" value={name} 
+                onChange={onChange} name='name' /></div>
+                <div className="col-md-6">
+                  <label className="labels">Email</label>
+                  <input type="email" className="form-control"  
+                   name="email"
+                   placeholder="Email"
+                   value={email} 
+                   onChange={onChange} /></div> 
+              </div> 
+              <div className="row mt-3"> 
+                <div className="col-md-12">
+                  <label className="labels">Age</label>
+                  <input type="number" className="form-control"  min="0"
+                   name="age"
+                   placeholder="Age"
+                   value={age} 
+                   onChange={onChange}/>
+                </div>
+                <div className="col-md-12">
+                  <label className="labels">Height</label>
+                  <input type="text" className="form-control" placeholder="height Cm" 
+                   name="height"
+                   value={height} 
+                   onChange={onChange} />
+                </div> 
+                <div className="col-md-12">
+                  <label className="labels">weight</label>
+                  <input type="text" className="form-control" placeholder="weight Kg" 
+                   name="weight"
+                   value={weight} 
+                   onChange={onChange} />
+                </div> 
+                <div className="col-md-12"><label className="labels">Tel</label>
+                  <input type="text" className="form-control" placeholder="+ --- -- --- ---" 
+                  name="tel"
+                  value={tel} 
+                  icon="fa-solid fa-at"
+                  onChange={onChange} />
+                </div> 
+                <div className="col-md-12"><label className="labels">City</label>
+                  <input type="text" className="form-control" name="city"
+                placeholder="city"
+                value={city} 
+                onChange={onChange}  />
+                </div>
+                <div className="col-md-12">
+                  <label className="labels">Address</label>
+                  <input type="text" className="form-control" placeholder="Address"
+                   name="address"
+                   value={address} 
+                   onChange={onChange}  />
+                </div> 
+              </div>
+              <div className="row mt-3"> 
+                <div className="col-md-6">
+                <label className='label'> select your strongerFoot</label>
+                  <select className="form-control select" 
+                   name='stronger_Foot' value={stronger_Foot} onChange={onChange} >
+                  <option value='Left'>Left</option>
+            <option value='Right'>Right</option>
+            <option value='both'>both</option>
+            </select>
+                </div> 
+                <div className="col-md-6">
+                <small className='form-text'>
             Give us an idea of your Favorite position
           </small>
-          <select className='inpt' name='Favorite_position' value={Favorite_position} onChange={onChange}>
+          <select className='form-control select' name='Favorite_position' value={Favorite_position} onChange={onChange}>
             <option> Select your Favorite position</option>
             <option value='Goalkeeper (GK)'>Goalkeeper (GK) </option>
             <option value='Centre-Back (CB)'>Centre-Back (CB)</option>
@@ -105,133 +183,30 @@ const ProfileForm = () => {
             <option value='Right Midfielder (RM)'>Right Midfielder (RM)</option>
             <option value='Right Wing Forward (RWF)'>Right Wing Forward (RWF)</option>
             <option value='Left Wing Forward (LWF)'> Left Wing Forward (LWF)</option>
-            <option value='Central Attacking Midfielder (CAM)'> Central Attacking Midfielder (CAM)</option>
             <option value='Centre Forward (CF)'> Centre Forward (CF)</option>
 
           </select>
-        
-        </div>
-        <div className='form-group' >
-          <label className='label'>Name</label>
-        <input className='inpt'
-                name="name"
-                placeholder="Name"
-                type="text"
-                icon="fa-solid fa-at"
-                value={name} 
-                onChange={onChange}
-              />
-                      </div>
-                      <div className='form-group'>
-                        <label className='label'>Email</label>
-               <input className='inpt'
-                name="email"
-                placeholder="Email"
-                type="text"
-                icon="fa-solid fa-at"
-                value={email} 
-                onChange={onChange}/>
-                </div>
-              <div className='form-group'>
-                <label className='label'>Age</label>
-                <input className='inpt'
-                name="age"
-                placeholder="Age"
-                type="text"
-                icon="fa-solid fa-at"
-                value={age} 
-                onChange={onChange}
-             />
-             </div>
-              <div className='form-group'>
-                <label className='label'>Height</label>
+                </div> 
+              </div> 
+              <div className='video'>
+          <ReactPlayer  controls  url="https://www.youtube.com/watch?v=_uuqsGCiM9I&ab_channel=7mlc"/> 
 
-              <input className='inpt'
-                name="height"
-                placeholder="Heigth"
-                type="text"
-                value={height} 
-                icon="fa-solid fa-at"
-                onChange={onChange}
-                  />
-                  </div>
-                  <div className='form-group'>
-                    <label className='label'>weight</label>
-                <input className='inpt'
-                name="weight"
-                placeholder="Weigth"
-                type="text"
-                value={weight} 
-                icon="fa-solid fa-at"
-                onChange={onChange}
-                  />
-                  </div>
-                  <div className='form-group'>
-                    <label className='label'> select your strongerFoot</label>
-                  <select className='inpt' name='stronger_Foot' value={stronger_Foot} onChange={onChange}>
-                  <option value='Left'>Left</option>
-            <option value='Right'>Right</option>
-            <option value='both'>both</option>
-
-            </select>
+          </div>
+              <div className="mt-5 text-center">
+                <button className="btn btn-primary profile-button" type="button" onClick={onSubmit}>Save Profile</button>
               </div>
-              <div className='form-group'>
-                <label className='label'>Address</label>
-              <input className='inpt'
-                name="address"
-                placeholder="Address"
-                type="text"
-                value={address} 
-                icon="fa-solid fa-at"
-                onChange={onChange}
-              />
-              </div>
-              <div className='form-group'>
-                <label className='label'>city</label>
-              <input className='inpt'
-                name="city"
-                placeholder="city"
-                type="text"
-                value={city} 
-                icon="fa-solid fa-at"
-                onChange={onChange}
-              />
-              </div>
-                
-                 <div className='form-group'>
-                   <label className='label'>Tel</label>
-             <input className='inpt'
-                name="tel"
-                placeholder="tel"
-                type="text"
-                value={tel} 
-                icon="fa-solid fa-at"
-                onChange={onChange}
-
-              />
-              </div>
-               <div className='form-group'>
-               <small className='form-text'>Tell us a little about yourself</small>
-          <textarea
-          className='inpt'
-            placeholder='A short bio of yourself'
-            name='bio'
-            value={bio}
-            onChange={onChange}
-          />
-
-        </div>
-            
+              <Link className='btn btn-light my-1' to='/dashbord'>
+                       Go Back
+                </Link> 
+            </div>
+          </div>
           
-              <input  type='submit' className='btn btn-primary my-1' onSubmit={onSubmit} />
-
-<Link className='btn btn-light my-1' to='/dashbord'>
-  Go Back
-</Link>
-   </form>
-   </div>
+        </div>
+      </div>
     </div>
   )
 }
 
 export default ProfileForm
+
+     

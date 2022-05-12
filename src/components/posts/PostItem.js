@@ -52,17 +52,17 @@ const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
             )}
           </Link>
 
-          {loading && user === auth.user._id && (
+          
             <button
               onClick={(e) => dispatch(deletePost(_id))}
               type='button'
               className='btn btn-danger'
             >
-              <i className='fas fa-times' />
+              <i className='fas fa-times' /> delete
             </button>
       
           
-          )} 
+          )
         </>
        )} 
     </div>
