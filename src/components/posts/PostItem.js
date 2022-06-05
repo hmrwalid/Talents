@@ -6,14 +6,14 @@ import { addLike, deletePost, removeLike, getPost } from '../../Redux/action/Pos
 import formatDate from '../../Util/formDate'
 
 const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
-
+ 
   showActions}) => {
+   
     
    const dispatch= useDispatch();
-   const loading = useSelector((state)=>state.post.loading)
-   const auth = useSelector((state)=>state.auth)
+
   return (
-    <div>
+    <div className='post'>
   <div className='post bg-white my-1 p-1'>
     <div>
       <Link to={`/profile/${user}`}>
@@ -46,28 +46,28 @@ const PostItem = ({post: { _id, text, name,  user, likes, comments, date },
           </button>
 
           <Link to={`/posts/${_id}`} >
-          <button className='btn btn-primary' onClick={console.log(dispatch(getPost(_id)))}   > discussion</button>
+          <button className='btn btn-primary' onClick={console.log(dispatch(getPost(_id)))}> discussion</button>
             {comments.length > 0 && (
               <span className='comment-count'>{comments.length}</span>
             )}
           </Link>
-
-          
-            <button
+                  <button
               onClick={(e) => dispatch(deletePost(_id))}
               type='button'
               className='btn btn-danger'
             >
-              <i className='fas fa-times' /> delete
+              <i className='fas fa-times' /> 
             </button>
       
           
-          )
+
+          
+          
         </>
        )} 
     </div>
   </div>
-
+      <small>You can only delete your post</small>
     </div>
   )
 }

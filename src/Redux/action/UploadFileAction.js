@@ -15,7 +15,7 @@ export const uploadImage = (formData) => async (dispatch) => {
         type: ADD_IMAGE,
         payload: res.data,
       });
-      dispatch(setAlert('image uploaded', 'success'));
+      dispatch(alert('image uploaded', 'success'));
     } catch (err) {
       dispatch(setAlert('image uploaded', 'Failed'));
     }
@@ -77,6 +77,8 @@ export const uploadvideo = (formData) => async (dispatch) => {
       dispatch(setAlert('VIDEO uploaded', 'success'));
     } catch (err) {
       dispatch(setAlert('VIDEO uploaded', 'Failed'));
+      console.log(err.toString())
+
     }
   };
 
@@ -90,5 +92,35 @@ export const uploadvideo = (formData) => async (dispatch) => {
       });
     } catch (err) {
       dispatch(setAlert("no video found"));
+      console.log(err.toString())
+
+    }
+  };
+  // Get my Video
+  export const getMyVideo = () => async (dispatch) => {
+    try {
+      const res = await axios.get('/api/upload/video/me');
+  
+      dispatch({
+        type: GET_VIDEO,
+        payload: res.data,
+      });
+    } catch (err) {
+
+      console.log(err.toString())
+
+    }
+  };
+  // Get Videos
+  export const getVideos = () => async (dispatch) => {
+    try {
+      const res = await axios.get('/api/upload/video');
+  
+      dispatch({
+        type: GET_IMAGES,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err)
     }
   };

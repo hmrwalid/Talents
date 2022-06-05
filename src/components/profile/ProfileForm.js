@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useMatch, useNavigate } from 'react-router-dom'
 import { createProfile, getCurrentProfile } from '../../Redux/action/ActionProfil'
 import { getMyImage } from '../../Redux/action/UploadFileAction'
-import UploaFile from './UploaFile'
+import UploadImage from './UploaImage'
 
 const ProfileForm = () => {
     const profile = useSelector((state)=>state.profile.profile)
@@ -73,8 +73,6 @@ const ProfileForm = () => {
        dispatch( createProfile(formData, navigate, profile ? true : false));
       };
 
-console.log("photo :" , photo)
-console.log("profile :" , profile)
 
 
   return (
@@ -89,7 +87,7 @@ console.log("profile :" , profile)
               <span className="text-black-50">{profile.Favorite_position}</span>
               <span> </span></>):
               
-              (<> <UploaFile/></>)}
+              (<> <UploadImage/></>)}
               
               </div>
           </div> 
@@ -157,7 +155,9 @@ console.log("profile :" , profile)
               </div>
               <div className="row mt-3"> 
                 <div className="col-md-6">
-                <label className='label'> select your strongerFoot</label>
+                <small className='form-text'>
+            Give us an idea of your stronger Foot
+          </small>
                   <select className="form-control select" 
                    name='stronger_Foot' value={stronger_Foot} onChange={onChange} >
                   <option value='Left'>Left</option>
@@ -189,12 +189,16 @@ console.log("profile :" , profile)
                 </div> 
               </div> 
               <div className='video'>
-          <ReactPlayer  controls  url="https://www.youtube.com/watch?v=_uuqsGCiM9I&ab_channel=7mlc"/> 
+          <input type="text" placeholder=' enter your url video'/> 
 
           </div>
               <div className="mt-5 text-center">
-                <button className="btn btn-primary profile-button" type="button" onClick={onSubmit}>Save Profile</button>
+                <Link to="/home">
+                <button className="btn btn-primary profile-button" type="button" onClick={onSubmit}>
+                  Save Profile</button>
+                  </Link>
               </div>
+           
               <Link className='btn btn-light my-1' to='/dashbord'>
                        Go Back
                 </Link> 

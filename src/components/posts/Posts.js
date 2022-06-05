@@ -11,7 +11,7 @@ useEffect(()=>{
  dispatch(getPosts())
 },[getPosts])
   return (
-    <div  style={{marginTop:"8erm"}}>
+    <div className='pst'>
         <section className='container'>
       <h1 className='large text-primary'>Posts</h1>
 

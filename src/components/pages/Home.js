@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getProfiles } from '../../Redux/action/ActionProfil'
 import ProfilCard from '../ProfilCard/ProfilCard'
+import About from './About'
 import Email from './Email'
 
 const Home = () => {
     const dispatch = useDispatch()
 
     const profiles = useSelector((state)=>state.profile.profiles)
+    const user = useSelector(state => state.auth)
+
     useEffect(() => {
         dispatch( getProfiles())
        }, [getProfiles])
@@ -31,7 +34,22 @@ const Home = () => {
         </div>
 
          </section>
-         <ProfilCard/>
+         <About/>
+         {!user.isConnected? (<>
+            <div className='homesing'>
+             <p>Register and you will be able to see the profiles of our players</p>
+             <Link to="singup"><span className='btn'>Sing Up</span></Link>
+         </div>
+         </>):
+         (<>
+         <div>
+      <h1 className='h1'>Our players</h1>
+      <ProfilCard/>
+      </div>
+                  
+
+         </>)}
+         
 
             </main>
             <Email/>

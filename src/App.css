@@ -138,24 +138,22 @@ outline: none;
       
   }
 
-  /* Profil CSS */
-/* .bodyProf {
-    background: rgb(15, 15, 15);
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  .homesing{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5rem;
+
   }
-  .containerProf {
-    display: flex;
-    justify-content: center;
-    margin-top: 8rem;
-    width: 700px;
-    height: 1000px;
-   
-    display: flex;
-    background: whitesmoke;
-    border-radius: 10px;
-  } */
+  .homesing p{
+    color:#fff ;
+  }
+  .homesing span{
+    background: #403734;
+    color: #fff;
+    margin: 1rem;
+  }
+
   .create {
      margin-top: 1rem;
     width: 500px;
@@ -740,4 +738,50 @@ opacity: 0.6;
     background: darkgray;
     width: 100%;
     border: none;
+}
+
+
+/* .main{width: 80vw;height: auto;margin: auto;background-image: linear-gradient(to bottom, #0f0f0f, rgb(132, 129, 129));color: white;position: relative;top: 5vh;padding: 1vw} */
+
+.messi{height: 80vh;position: relative;left: 2vw; width: 400px;}
+.titlep{
+  color: white;
+  margin-top: 4rem;
+
+  font-size: 3vw;
+  padding: 0vw;
+  animation-name: first;animation-duration: 1s;animation-fill-mode: forwards}
+  @keyframes first{from{width: 0%;font-size: 0vw;padding: 0vw}to{width: 90%;font-size: 3vw;padding: 0.5vw}}
+
+.details{width: 90%;background-color:#0000;margin: auto;padding: 0vw;color: #fff;animation-name: second;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 1s}@keyframes second{from{padding: 0vw}to{padding: 1vw}}
+tr{border: 2px solid rgb(0, 0, 0, 0.0)}
+.bio{font-size: 1.2vw ;color: #000;}
+.stats{background-color: #e53935;width: 0%;color: #fff;height: 3vw;font-size: 0vw;padding: 0vw;animation-name: fourth;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 2s}@keyframes fourth{from{width: 0%;font-size: 0vw;padding: 0vw}to{width: 100%;font-size: 1.5vw;padding: 0.5vw}}.ss{position: relative;bottom: 80vh;left: 21vw;font-size: 3vw;color: gold}.bigno{position: relative;bottom: 82vh;left: 20vw;font-size: 5vw;color: gold}.flag{height: 1.5vw;width: 2vw;position: relative;bottom: 0.2vw}@media only screen and (max-width: 425px){.main{width: 100vw;height: 270vw}.bio{font-size: 3.6vw}.stats{height: 9vw}.flag{height: 5.4vw;width: 6vw}.messi{height: 80vw;position: relative;left: 18vw}
+.ss{position: relative;bottom: 80vw;left: 70vw;font-size: 5vw}
+.bigno{position: relative;bottom: 84vw;left: 68vw;font-size: 8vw}}
+
+/**********************************puser************************/
+.puser{
+  background: #777;
+}
+
+
+b{
+  color: #151617;
+}
+.myProf{
+  color: #ffff;
+}
+
+/************************posts*************/
+/* .posts{
+  border: solid red;
+} */
+.pst{
+  border:  solid #fff;
+  margin-top: 9rem;
+}
+.cmnt{
+  margin-top: 7.5rem;
+
 }

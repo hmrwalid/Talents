@@ -14,10 +14,7 @@ const ProfilCardItems = ({image}) => {
 const profiles = useSelector((state)=>state.profile.profiles)
 const imageUser = image.user
 var profile =profiles.filter(profile=> profile.user._id=== imageUser)[0]
-console.log("profiles:", profiles)
 
-console.log("imageUser", imageUser)
-console.log('profile._id',profile)
   return (
     <div style={{margin:"2px"}}>
       {profile !== undefined ?(   <div className="flip-container">

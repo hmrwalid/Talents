@@ -23,7 +23,7 @@ const About = () => {
                   <img src="p1.jpg" alt="..." className="rounded-circle " width="180px" />
                 </div>
                 <h4 className="sub-info" style={{color:"#b88017"}}>finding gold talent</h4>
-                <p className="display-30 mb-0" style={{color:"white"}}>Our GOLDEN TALENT website facilitates the search for underrated talents especially in developing regions</p>
+                <p className="display-30 mb-0" style={{color:"white"}}>Our GOLDEN TALENT website facilitates the search for talents especially in developing regions</p>
               </div>
               
             </div>

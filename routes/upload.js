@@ -4,6 +4,7 @@ const {videoUpload,
   imageUpload} = require('../cloudinary/multer')
 const {cloudinary }= require('../cloudinary/cloudinary')
 const Model = require('../models/fileUplaodModel')
+const videoModel = require('../models/videoUpload')
 const User = require("../models/User")
 const passport = require('passport')
 
@@ -14,7 +15,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), imageUpload.s
 
       // Upload image to cloudinary
      const result = await cloudinary.uploader.upload(req.file.path);
-     console.log(req.file.path)
+     console.log(req.file)
       // Create new user
       let fileUpload = new Model({
         user: req.user.id,
@@ -53,9 +54,7 @@ router.post("/", passport.authenticate("jwt", { session: false }), imageUpload.s
       res.json(image);
     } catch (err) {
       console.error(err.message);
-      if (err.kind == 'ObjectId')
-        return res.status(404).json({ msg: 'image not found' });
-      res.status(500).send('Server Error');
+      //  
     }
   });
   // get my Image
@@ -108,20 +107,23 @@ router.post("/", passport.authenticate("jwt", { session: false }), imageUpload.s
         const user = await User.findById(req.user.id).select('-password');
 
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload_large(req.file.path);
+      const cloud = await cloudinary.uploader.upload(req.file.path,{
+         folder: "my/", 
+    public_id: "my_name" }
+    
+    );
       
-  
+  console.log(cloud)
       // Create new user
-      let fileUpload = new Model({
-        avatar: result.secure_url,
-        video :result.secure_url,
-        cloudinary_id: result.public_id,
+      let fileUpload = new videoModel({
         user: req.user.id,
+        video :cloud.secure_url,
+        cloudinary_id: cloud.public_id,
 
       });
       // Save fileUpload
       await fileUpload.save();
-      res.json({fileUpload, msg:"uplaod with success"});
+      res.json({fileUpload});
     } catch (err) {
       console.log(err);
     }

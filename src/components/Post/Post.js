@@ -23,7 +23,7 @@ const Post = () => {
 
 
   return (
-    <div>
+    <div className='cmnt'>
       <section className='container'>
       <Link to='/posts' className='btn'>
         Back to Posts

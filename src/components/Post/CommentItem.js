@@ -5,8 +5,7 @@ import { deleteComment } from '../../Redux/action/PostAction'
 import formatDate from '../../Util/formDate'
 
 const CommentItem = ( {postId, comment: { _id, text, name,  user, date },}) => {
-  const authId = useSelector((state)=>state.auth.user._id)
-  const postUser = useSelector((state)=>state.post.posts.user)
+ 
 
  const dispatch= useDispatch()
 
@@ -25,22 +24,18 @@ const CommentItem = ( {postId, comment: { _id, text, name,  user, date },}) => {
       <p className='my-1'>{text}</p>
 
       <p className='post-date'>Posted on {formatDate(date)}</p>
-        {authId=== postUser?  
-         (<>
-         <button
+      <button
           onClick={(e) =>dispatch(deleteComment(postId, _id))}
           type='button'
           className='btn btn-danger'
         >
           <i className='fas fa-times' />
         </button>
-         </>):
-        (<>
-        </>)}
         
       
     </div>
   </div>
+  <small>You can only delete your comment </small>
     </div>
   )
 }

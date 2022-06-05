@@ -18,7 +18,7 @@ router.post("/login", Login);
 
 // test router
 // router.get('/test',   passport.authenticate('jwt', { session: false }),Test)
-// router.get('/admin',  passport.authenticate('jwt', { session: false }),inRole(ROLES.ADMIN),Admin)
+router.get('/admin',  inRole(ROLES.ADMIN),Admin)
 
 
 /* add profile route */

@@ -10,9 +10,7 @@ const uploadSchema = new Schema( {
   avatar: {
     type: String,
   },
-  video: {
-    type: String,
-  },
+  
   cloudinary_id: {
     type: String,
   },

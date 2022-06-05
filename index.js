@@ -1,5 +1,7 @@
 const express = require("express")
 require("dotenv").config({path:"./config/.env"})
+const cloudinary = require('cloudinary').v2;
+
 const connectDB = require('./connectDB/DB.js')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -21,6 +23,15 @@ app.use(cookieParser());
 // app.use(express.static('build'));
 app.use(cors());
 app.use(express.static('public'));
+
+// cloudinary config
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+     cloudinary_url :process.env.CLOUDINARY_URL
+});
  // nodemailer
  app.post("/send_mail", cors(), async (req, res) => {
 	let { text } = req.body

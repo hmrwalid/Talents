@@ -34,7 +34,7 @@ const Navbar = () => {
                 <>
                    <Link to='/posts'> <span>Posts</span></Link>
                   <Link to='/dashbord' > <span className="btn">{user.user.name}</span></Link>
-                  <Link to='#' > <span className="btn" onClick={handelLogout}>Logout</span></Link>
+                  <Link to='/singup' > <span className="btn" onClick={handelLogout}>Logout</span></Link>
                   
                 </>) }
 
