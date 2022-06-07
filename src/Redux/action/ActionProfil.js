@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ACCOUNT_DELETED, CLEAR_PROFILE, GET_PROFILE, GET_PROFILES, PROFILE_ERROR } from "../typeAction";
+import { ACCOUNT_DELETED, CLEAR_PROFILE, DELETE_PROFILE, GET_PROFILE, GET_PROFILES, PROFILE_ERROR } from "../typeAction";
 import {setAlert }from "./AlertAction"
 // Get Current User's Profile
 export const getCurrentProfile = () => async (dispatch) => {
@@ -99,7 +99,7 @@ async (dispatch) => {
   }
 };
 
-// Delete Account & Profile
+// Delete my Account & Profile
 export const deleteAccount = () => async (dispatch) => {
     if (window.confirm('Are you sure to delete the profile')) {
       try {
@@ -113,3 +113,12 @@ export const deleteAccount = () => async (dispatch) => {
       }
     }
   };
+
+  // admin 
+  export const deleteUsers =(id)=>async(dispatch)=>{
+    axios.delete(`/api/profile/${id}`)
+    .then((res)=>dispatch(getProfiles()))
+    .catch((err)=>console.log(err))
+  }
+  
+  

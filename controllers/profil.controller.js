@@ -129,21 +129,16 @@ const DeleteProfile = async (req ,res)=>{
       res.status(500).send('Serrver Error');
     }
   };
+
   const deletProfilebyId = async(req, res)=>{
     try {
-      const profile = await ProfileModel.findById(req.params.id);
-  
-      
-  
-
-    await profile.remove();
-
-    res.json({ msg: 'profile removed' });
-    } catch (error) {
-      console.error(err.message);
-
-    res.status(500).send('Server Error');
-  }    
+      const result = await ProfileModel.deleteOne({_id :req.params.id},{$set:{...req.body}})
+      res.status(200).send({response: result, message :"deleting user"})
+  } catch (error) {
+      console.log(error.toString());
+      res.status(405).send({message:"can not delete"})
+  }
+   
     }
     
     

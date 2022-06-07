@@ -1,9 +1,10 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { deleteAccount } from '../../Redux/action/ActionProfil'
+import { deleteAccount, deleteUsers } from '../../Redux/action/ActionProfil'
 
 const Profil = ({profile}) => {
+  console.log(profile._id)
     const dispatch = useDispatch()
   return (
     <Table striped bordered hover>
@@ -22,7 +23,7 @@ const Profil = ({profile}) => {
         <td>{profile.email}</td>
         
         <td>
-        <button className="btn btn-outline-danger" onClick={()=>dispatch(deleteAccount())}>Delete</button>
+        <button className="btn btn-outline-danger" onClick={()=>dispatch(deleteUsers(profile._id))}>Delete</button>
         </td>
       </tr>
      

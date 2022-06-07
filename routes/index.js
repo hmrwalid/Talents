@@ -45,6 +45,6 @@ router.get('/profile/:id', passport.authenticate("jwt", { session: false }), get
 
 
 // Delete a profile
-router.delete('/profile/:id',  passport.authenticate("jwt", { session: false }), deletProfilebyId)
+router.delete('/profile/:id',passport.authenticate("jwt", { session: false }),   deletProfilebyId)
 
 module.exports = router;

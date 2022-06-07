@@ -189,7 +189,7 @@ const ProfileForm = () => {
                 </div> 
               </div> 
               <div className='video'>
-          <input type="text" placeholder=' enter your url video'/> 
+          <input type="text" placeholder=' enter your url video' name='video' value={video} onChange={onChange}/> 
 
           </div>
               <div className="mt-5 text-center">

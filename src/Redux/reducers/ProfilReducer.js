@@ -1,4 +1,4 @@
-import { CLEAR_PROFILE, GET_PROFILE, GET_PROFILES, PROFILE_ERROR, UPDATE_PROFILE } from "../typeAction";
+import { CLEAR_PROFILE, DELETE_PROFILE, GET_PROFILE, GET_PROFILES, PROFILE_ERROR, UPDATE_PROFILE,  } from "../typeAction";
 
 const initialState = {
     profile: null,
@@ -36,6 +36,7 @@ const initialState = {
           ...state,
           profile: null,
         };
+       
      
   
       default:

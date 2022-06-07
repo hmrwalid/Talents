@@ -64,7 +64,7 @@ return (
           </tbody></table> <br /><br />
         
       </div>
-      <ReactPlayer  controls  url="https://www.youtube.com/watch?v=_uuqsGCiM9I&ab_channel=7mlc"/> 
+      <ReactPlayer  controls  url={profile.video}/> 
 
     </div>
     <div className="col-lg-5"> 
