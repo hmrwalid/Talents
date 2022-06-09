@@ -132,8 +132,12 @@ const DeleteProfile = async (req ,res)=>{
 
   const deletProfilebyId = async(req, res)=>{
     try {
-      const result = await ProfileModel.deleteOne({_id :req.params.id},{$set:{...req.body}})
-      res.status(200).send({response: result, message :"deleting user"})
+      const profile = await ProfileModel.deleteOne({_id :req.params.id},{$set:{...req.body}})
+      // await User.deleteOne({_id :req.params.id},{$set:{...req.body}})
+      // await Post.deleteOne({_id :req.params.id},{$set:{...req.body}})
+      //  await File.deleteOne({_id :req.params.id},{$set:{...req.body}})
+
+      res.status(200).send({response: profile, message :"deleting user"})
   } catch (error) {
       console.log(error.toString());
       res.status(405).send({message:"can not delete"})
@@ -141,7 +145,7 @@ const DeleteProfile = async (req ,res)=>{
    
     }
     
-    
+     
 
   
   

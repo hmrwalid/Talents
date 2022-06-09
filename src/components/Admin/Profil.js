@@ -1,10 +1,9 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { deleteAccount, deleteUsers } from '../../Redux/action/ActionProfil'
+import {  deleteUsers } from '../../Redux/action/ActionProfil'
 
 const Profil = ({profile}) => {
-  console.log(profile._id)
     const dispatch = useDispatch()
   return (
     <Table striped bordered hover>
