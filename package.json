@@ -6,6 +6,7 @@
     "@babel/core": "^7.16.0",
     "@cloudinary/react": "^1.2.2",
     "@cloudinary/url-gen": "^1.7.0",
+    "@heroku/buildpack-registry": "^1.0.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@reduxjs/toolkit": "^1.8.0",
     "@svgr/webpack": "^5.5.0",

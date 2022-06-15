@@ -7,14 +7,6 @@ const Profil = ({profile}) => {
     const dispatch = useDispatch()
   return (
     <Table striped bordered hover>
-    <thead>
-      <tr>
-        <th> User</th>
-        <th>Email</th>
-        <th></th>
-
-      </tr>
-    </thead>
     <tbody>
       <tr>
        

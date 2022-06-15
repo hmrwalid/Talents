@@ -346,3 +346,33 @@ margin-top: 0;
     font-size: 3rem;
 }
 
+/*******skills***************/
+.videoSkill{
+  display: flex;
+   justify-content: center;
+   padding: 12px;
+   background: #000;
+   
+}
+.videoSkill h4{
+ color: #b88b0f;
+ margin-right: 18px;
+}
+.videoSkill .Vds{
+  border: solid rgb(63, 56, 56);
+  margin-top: 1rem;
+}
+.url{
+  display: flex;
+  justify-content: center;
+  background: #000;
+padding: 1rem;
+}
+.inputUrl{
+  width: 20%;
+  margin-right: 5px;
+}
+.btUrl{
+background: #777;
+}
+

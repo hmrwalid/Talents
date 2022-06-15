@@ -116,9 +116,12 @@ export const deleteAccount = () => async (dispatch) => {
 
   // admin 
   export const deleteUsers =(id)=>async(dispatch)=>{
-    axios.delete(`/api/profile/${id}`)
-    .then((res)=>dispatch(getProfiles()))
-    .catch((err)=>console.log(err))
+    if (window.confirm('Are you sure to delete the profile')){
+      axios.delete(`/api/profile/${id}`)
+      .then((res)=>dispatch(getProfiles()))
+      .catch((err)=>console.log(err))
+    }
+ 
   }
   
   

@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useMatch, useNavigate } from 'react-router-dom'
 import { createProfile, getCurrentProfile } from '../../Redux/action/ActionProfil'
-import { getMyImage } from '../../Redux/action/UploadFileAction'
+import { deleteImage, getMyImage } from '../../Redux/action/UploadFileAction'
 import UploadImage from './UploaImage'
 
 const ProfileForm = () => {
@@ -85,7 +85,15 @@ const ProfileForm = () => {
                 <img className="rounded-circle mt-5" src={photo.avatar} width="200px" />
               <span className="font-weight-bold">{profile.name}</span>
               <span className="text-black-50">{profile.Favorite_position}</span>
-              <span> </span></>):
+              <span> 
+              <button
+              onClick={(e) => dispatch(deleteImage())}
+              type='button'
+              className='btn btn-danger'
+            >
+              <i className='fas fa-times' /> 
+            </button>
+                </span></>):
               
               (<> <UploadImage/></>)}
               
@@ -193,13 +201,13 @@ const ProfileForm = () => {
 
           </div>
               <div className="mt-5 text-center">
-                <Link to="/home">
+               <Link to='/'>
                 <button className="btn btn-primary profile-button" type="button" onClick={onSubmit}>
                   Save Profile</button>
                   </Link>
               </div>
-           
-              <Link className='btn btn-light my-1' to='/dashbord'>
+             
+              <Link className='btn btn-light my-1' to='/'>
                        Go Back
                 </Link> 
             </div>

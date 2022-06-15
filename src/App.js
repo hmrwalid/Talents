@@ -8,7 +8,6 @@ import Home from './components/pages/Home';
 import About from "./components/pages/About"
 import Login from './components/priveRoute/Login';
 import SingUp from './components/priveRoute/SingUp';
-import Register from './components/profile/Register';
 import NoAcces from './components/pages/NoAcces';
 import Dashboard from './components/profile/Dashboard';
 import PrivateRouter from './components/priveRoute/PrivetRoutr';
@@ -89,7 +88,6 @@ function App() {
 
      <Route path="/login" element={ <ForceRedirect user={user}><Login /></ForceRedirect>
      }/>
-     <Route path="/register" element={<ForceRedirect user={user}><Register/></ForceRedirect>}/>
      <Route path="/singup" element={<SingUp/>}/>
      <Route path='posts' element={  <PrivateRouter user={user}>
             <Posts />
